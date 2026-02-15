@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Travel Copilot - Презентация</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+<style>
+  :root { --r-main-font-size: 28px; --r-heading-font: 'Segoe UI', system-ui, sans-serif; --r-main-font: 'Segoe UI', system-ui, sans-serif; }
+  .reveal { font-size: 24px; }
+  .reveal h1 { font-size: 1.8em; color: #FFCA28; }
+  .reveal h2 { font-size: 1.3em; color: #FFCA28; }
+  .reveal h3 { font-size: 1.05em; color: #42A5F5; }
+  .reveal h4 { font-size: 0.9em; color: #66BB6A; margin-bottom: 0.3em; }
+  .reveal table { font-size: 0.55em; margin: 0.3em auto; border-collapse: collapse; width: 95%; }
+  .reveal table th { background: #1565C0; color: #fff; padding: 6px 8px; text-align: left; }
+  .reveal table td { padding: 5px 8px; border-bottom: 1px solid #444; vertical-align: top; }
+  .reveal table tr:nth-child(even) td { background: rgba(255,255,255,0.04); }
+  .reveal ul, .reveal ol { font-size: 0.75em; text-align: left; }
+  .reveal li { margin-bottom: 0.25em; }
+  .stat-cards { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin: 0.5em 0; }
+  .stat-card { border-radius: 10px; padding: 14px 18px; text-align: center; min-width: 140px; }
+  .stat-card .num { font-size: 1.8em; font-weight: bold; }
+  .stat-card .lbl { font-size: 0.65em; opacity: 0.85; margin-top: 4px; }
+  .sc-red { background: rgba(239,83,80,0.15); border: 1px solid rgba(239,83,80,0.4); }
+  .sc-red .num { color: #EF5350; }
+  .sc-yellow { background: rgba(255,202,40,0.12); border: 1px solid rgba(255,202,40,0.35); }
+  .sc-yellow .num { color: #FFCA28; }
+  .sc-blue { background: rgba(33,150,243,0.12); border: 1px solid rgba(33,150,243,0.35); }
+  .sc-blue .num { color: #2196F3; }
+  .sc-green { background: rgba(102,187,106,0.12); border: 1px solid rgba(102,187,106,0.35); }
+  .sc-green .num { color: #66BB6A; }
+  .highlight-box { background: rgba(255,202,40,0.1); border-left: 4px solid #FFCA28; padding: 12px 16px; border-radius: 6px; font-size: 0.75em; text-align: left; margin: 0.4em 0; }
+  .highlight-blue { background: rgba(33,150,243,0.1); border-left: 4px solid #2196F3; padding: 12px 16px; border-radius: 6px; font-size: 0.75em; text-align: left; margin: 0.4em 0; }
+  .section-slide h2 { font-size: 1.6em; }
+  .small-text { font-size: 0.6em; opacity: 0.7; }
+  .two-col { display: flex; gap: 20px; align-items: flex-start; }
+  .two-col > div { flex: 1; }
+  .reveal img { max-height: 440px; border-radius: 6px; }
+  .scenario-box { background: rgba(33,150,243,0.08); border: 1px solid rgba(33,150,243,0.25); border-radius: 8px; padding: 14px 18px; text-align: left; font-size: 0.7em; margin: 0.3em 0; }
+  .scenario-box strong { color: #42A5F5; }
+  .mermaid { font-size: 0.7em; }
+  .reveal pre { font-size: 0.55em; }
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ============ ТИТУЛЬНЫЙ ============ -->
+<section>
+  <h1>AI Travel Copilot</h1>
+  <p style="font-size:0.9em; color:#aaa;">Не просто агент, а попутчик</p>
+  <p style="font-size:0.7em;">От планирования к сопровождению: V1 &rarr; V2</p>
+  <br>
+  <p style="font-size:0.7em; color:#888;">Стратегия, продуктовая проработка и техническая схема<br>для Т-Путешествий (Т-Банк)</p>
+  <p style="font-size:0.6em; color:#666;">Февраль 2026 &middot; Дорохов Даниил Александрович</p>
+</section>
+
+<!-- ============ КОНТЕКСТ V1→V2 ============ -->
+<section>
+  <h2>Контекст: V1 &rarr; V2</h2>
+  <div class="highlight-box">
+    <strong>V1 (июнь 2025):</strong> Тревел-ассистент на Gen-T. Подбирает направления, ищет билеты/отели, составляет план досуга. Планирование ~2 мин. 5 млн бронирований, 51,2 млн клиентов экосистемы.
+  </div>
+  <div class="highlight-blue" style="margin-top:10px;">
+    <strong>Моё предложение (V2):</strong> трансформировать в полноценного lifecycle-компаньона с глубокой интеграцией экосистемы Т-Банка, мультимодальным входом, антифрод-защитой и проактивным сопровождением на всех этапах поездки.
+  </div>
+</section>
+
+<!-- ============ ЧАСТЬ A ============ -->
+<section class="section-slide">
+  <h2 style="color:#FFCA28;">Часть А</h2>
+  <p>Стратегия</p>
+</section>
+
+<!-- A1: Проблема + ключевые цифры -->
+<section>
+  <h2>Проблема: перегрузка выбором</h2>
+  <div class="stat-cards">
+    <div class="stat-card sc-red"><div class="num">40%</div><div class="lbl">ищут, но<br>не покупают</div></div>
+    <div class="stat-card sc-yellow"><div class="num">35%</div><div class="lbl">бросают<br>корзину</div></div>
+    <div class="stat-card sc-blue"><div class="num">25 сек</div><div class="lbl">на изучение<br>тарифа</div></div>
+    <div class="stat-card sc-green"><div class="num">1-2%</div><div class="lbl">конверсия<br>визит &rarr; покупка</div></div>
+  </div>
+  <p style="font-size:0.6em; margin-top:0.8em;">Парадокс выбора (Барри Шварц): при 50+ вариантах конверсия падает на 20-30%.<br>~40% уходят после 5-7 поисков из-за усталости. AI фильтрует 90% шума, человек принимает решение.</p>
+</section>
+
+<!-- A1: Сегменты -->
+<section>
+  <h2>Сегменты пользователей</h2>
+  <table>
+    <tr><th>Сегмент</th><th>Характеристика</th><th>Почему нужен Copilot</th></tr>
+    <tr><td>Зумеры и миллениалы (18-34)</td><td>70-78% бронируют онлайн, 50-71% используют ИИ</td><td>Ожидают AI-интерфейс; без AI уйдут в ChatGPT</td></tr>
+    <tr><td>Семьи с детьми</td><td>Спрос на &laquo;всё включено&raquo; +20-40%</td><td>Сложный запрос; Copilot собирает &laquo;пазл&raquo;</td></tr>
+    <tr><td>&laquo;Без плана&raquo;</td><td>52-66% практикуют country hopping</td><td>Не знают, что ввести; классический поиск не работает</td></tr>
+    <tr><td>Региональные</td><td>Доля турпотока из регионов: 66%</td><td>Менее опытны, нуждаются в &laquo;проводнике&raquo;</td></tr>
+    <tr><td>Бизнес</td><td>Важна скорость, типовые маршруты</td><td>Copilot мгновенно подбирает оптимальный вариант</td></tr>
+  </table>
+  <div class="highlight-box" style="margin-top:8px;">
+    <strong>Контекст рынка:</strong> 90-98 млн внутренних поездок (2025), ~9-10 млн выезд (+6-7% в 2026). ЮВА +139%. 70-78% молодых бронируют онлайн, 50-71% используют ИИ.
+  </div>
+</section>
+
+<!-- A2: Ценность - конверсия -->
+<section>
+  <h2>Ценность: рост конверсии</h2>
+  <table>
+    <tr><th>Текущее состояние</th><th>Эффект Copilot</th><th>Бенчмарк</th></tr>
+    <tr><td>Конверсия ~1-2%</td><td>Снижение фрикции: поиск &rarr; карточка &rarr; корзина</td><td>Kayak AI: +15-20% конверсии</td></tr>
+    <tr><td>40% &laquo;смотрят, не покупают&raquo;</td><td>Copilot переводит из &laquo;просмотра&raquo; в &laquo;действие&raquo;</td><td>Booking.com AI: +30% engagement</td></tr>
+    <tr><td>35% брошенных корзин</td><td>Чек-лист перед оплатой, объяснение условий</td><td>Expedia ChatGPT: +40% сессий</td></tr>
+  </table>
+  <p style="font-size:0.6em; margin-top:0.8em;">&laquo;Поехать в путешествие&raquo; - это не одна задача, а десятки. Copilot превращает сложную задачу в набор маленьких понятных действий: один вопрос - один ответ, одна галочка - один шаг. Геймификация: прогресс-бар, бейджи, обратный отсчёт.</p>
+</section>
+
+<!-- A2: ARPU + кросс-продажи -->
+<section>
+  <h2>Рост ARPU: кросс-продажи экосистемы</h2>
+  <p style="font-size:0.65em;">Каждая поездка генерирует 5-8 дополнительных транзакций. Кросс-продажи: 20-25% &rarr; <strong>35-40%</strong></p>
+  <table>
+    <tr><th>Продукт</th><th>Интеграция с Copilot</th><th>Маржа</th></tr>
+    <tr><td>Т-Страхование</td><td>&laquo;Для Таиланда рекомендую ВЗР с покрытием 50к$ - оформить?&raquo;</td><td>20-30%</td></tr>
+    <tr><td>Кэшбек / Бонусы</td><td>&laquo;Оплата картой Pro, кэшбек 5%, вернётся ~3 200 руб.&raquo;</td><td>Удержание</td></tr>
+    <tr><td>Обмен валюты</td><td>&laquo;Курс бата сейчас выгодный. Купить на поездку?&raquo;</td><td>Комиссия</td></tr>
+    <tr><td>Т-Мобайл (eSIM)</td><td>&laquo;Для Турции eSIM 10ГБ за 890 руб., подключить?&raquo;</td><td>Подписка</td></tr>
+    <tr><td>Маркетплейс</td><td>&laquo;Нужен адаптер для розеток? Подборка с доставкой до отъезда&raquo;</td><td>5-15%</td></tr>
+    <tr><td>Т-Плюс</td><td>&laquo;Скачай фильмы в дорогу: подборка про Италию&raquo;</td><td>Партнёрство</td></tr>
+    <tr><td>Т-Инвестиции</td><td>Копилка &laquo;На отпуск&raquo;, автонакопление к дате</td><td>Удержание средств</td></tr>
+    <tr><td>Мессенджер</td><td>Copilot как бот в чате</td><td>Дистрибуция</td></tr>
+  </table>
+</section>
+
+<!-- A2: Конкурентное преимущество + удержание + OpEx -->
+<section>
+  <h2>Экосистемное преимущество + удержание</h2>
+  <div class="highlight-box">
+    <strong>Почему Т-Банк, а не Google/Kayak/ChatGPT:</strong> ни один зарубежный конкурент не может предложить бесшовную интеграцию бронирования со страховкой, валютой, маркетплейсом, подписками и инвестициями в одном диалоге. Booking ушёл, Airbnb недоступен, оплата иностранных сервисов затруднена.
+  </div>
+  <div class="two-col" style="margin-top:12px; font-size:0.65em;">
+    <div>
+      <h4>Удержание</h4>
+      <p>~50% путешественников уходят на Aviasales/Ostrovok. Lifecycle-UX (чек-лист, напоминания, такси) даёт причину вернуться. Повторные покупки: 30% &rarr; 40%.</p>
+    </div>
+    <div>
+      <h4>Снижение OpEx</h4>
+      <p>70% обращений в поддержку - типовые. Copilot закрывает до <strong>50%</strong> автоматически. У Т-Банка уже несколько AI-ботов на Gen-T; тревел - следующий.</p>
+    </div>
+  </div>
+</section>
+
+<!-- A3: Почему сейчас -->
+<section>
+  <h2>Почему сейчас</h2>
+  <table>
+    <tr><th>Фактор</th><th>Аргумент</th></tr>
+    <tr><td>Привычки аудитории</td><td>50-71% молодёжи уже используют ИИ для путешествий. Без AI уйдут в ChatGPT</td></tr>
+    <tr><td>Рынок на пике</td><td>90-98 млн внутренних поездок, выездной +6-7%. Больше точек для Copilot</td></tr>
+    <tr><td>V1 доказал спрос</td><td>Тревел-ассистент запущен 26.06.2025. Базовый сценарий работает, пора масштабировать</td></tr>
+    <tr><td>AI-экспертиза</td><td>Gen-T (собственные LLM), &laquo;Вселенная AI-ассистентов&raquo; в проде. Инфраструктура готова</td></tr>
+    <tr><td>Уникальность экосистемы</td><td>Бронирование + страховка + валюта + маркетплейс + подписки в одном Copilot</td></tr>
+    <tr><td>Цифровая зрелость</td><td>70-78% молодых россиян бронируют онлайн, Ozon Travel +1,9x клиентов</td></tr>
+    <tr><td>Рост тревел-фрода</td><td>+30-50% в Q1 2026, ущерб до 1-3 млн руб. Copilot как антифрод-слой</td></tr>
+  </table>
+</section>
+
+<!-- A4: Метрики -->
+<section>
+  <h2>Метрики успеха</h2>
+  <div class="highlight-box">
+    <strong>North Star Metric:</strong> Доля завершённых поездок, где Copilot использовался на 2+ этапах lifecycle.<br>
+    <span style="font-size:0.85em;">Отражает реальную полезность как компаньона. Коррелирует с кросс-продажами и удержанием.</span>
+  </div>
+  <div class="two-col" style="margin-top:10px;">
+    <div>
+      <h4>Supporting</h4>
+      <table>
+        <tr><th>Метрика</th><th>Цель</th></tr>
+        <tr><td>Конверсия с Copilot vs без</td><td>+15-20%</td></tr>
+        <tr><td>Время до покупки</td><td>-20-30%</td></tr>
+        <tr><td>Средний чек + доп. продукты</td><td>+25-35% ARPU</td></tr>
+        <tr><td>Доля кросс-продаж</td><td>20-25% &rarr; 35-40%</td></tr>
+        <tr><td>Повторные покупки (6 мес.)</td><td>30% &rarr; 40%</td></tr>
+        <tr><td>Обращения, закрытые Copilot</td><td>30-50%</td></tr>
+        <tr><td>DAU/MAU Copilot</td><td>&gt;15% MAU</td></tr>
+      </table>
+    </div>
+    <div>
+      <h4>Guardrails</h4>
+      <table>
+        <tr><th>Guardrail</th><th>Порог</th></tr>
+        <tr><td>% отмен бронирований</td><td>&le; текущего (~10-15%)</td></tr>
+        <tr><td>Жалобы на неверную инфо</td><td>0 подтверждённых</td></tr>
+        <tr><td>NPS</td><td>&ge; текущего</td></tr>
+        <tr><td>Латентность p95</td><td>&le; 3 сек</td></tr>
+        <tr><td>Конверсия без Copilot</td><td>Не снижается</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- A5: Риски -->
+<section>
+  <h2>Топ-5 рисков и митигация</h2>
+  <table>
+    <tr><th>#</th><th>Риск</th><th>Вер. / Импакт</th><th>Митигация</th></tr>
+    <tr><td>1</td><td>Галлюцинации (неверные цены, условия)</td><td>Высокая / Крит.</td><td>Copilot НЕ генерирует факты, берёт из API. Валидация. Честный fallback</td></tr>
+    <tr><td>2</td><td>Потеря доверия при ошибке</td><td>Средняя / Крит.</td><td>Дисклеймер. Fallback на ручной режим. Kill switch. Мониторинг жалоб</td></tr>
+    <tr><td>3</td><td>Юридические риски (AI &laquo;обещает&raquo;)</td><td>Средняя / Выс.</td><td>Запреты в промпте. Валидация на сервере. Юрэкспертиза до запуска</td></tr>
+    <tr><td>4</td><td>Высокая латентность</td><td>Средняя / Сред.</td><td>SLA p95 &le; 3 сек. Graceful degradation. Кеширование. Streaming</td></tr>
+    <tr><td>5</td><td>Каннибализация</td><td>Низкая / Выс.</td><td>Feature flags. A/B тесты. Copilot опционален</td></tr>
+  </table>
+</section>
+
+<!-- ============ ЧАСТЬ B ============ -->
+<section class="section-slide">
+  <h2 style="color:#FFCA28;">Часть B</h2>
+  <p>Продуктовая проработка</p>
+</section>
+
+<!-- B1: Текущий CJM -->
+<section>
+  <h2>Текущий CJM (с V1)</h2>
+  <div class="mermaid">
+graph LR
+  A["Вдохновение<br/>Соцсети, друзья"] --> B["Поиск / V1-чат<br/>Форма или диалог"]
+  B --> C["Результаты<br/>Список, фильтры"]
+  C --> D["Карточка<br/>Тарифы, условия"]
+  D --> E["Корзина<br/>Проверка данных"]
+  E --> F["Оплата<br/>Картой Т-Банка"]
+  F --> G["Post-booking<br/>Trip Hub"]
+  </div>
+  <table style="margin-top:10px;">
+    <tr><th>Этап</th><th>V1 решает</th><th>Что остаётся проблемой</th></tr>
+    <tr><td>Вдохновение</td><td>Частично: можно спросить &laquo;куда поехать&raquo;</td><td>Нет мультимодального входа, нет антифрод</td></tr>
+    <tr><td>Поиск</td><td>Свободный диалог, подбор</td><td>Нет контекста экрана, не сравнивает</td></tr>
+    <tr><td>Результаты</td><td>Ссылки из чата</td><td>Не встроен в экран результатов</td></tr>
+    <tr><td>Карточка / Корзина / Post</td><td>Нет</td><td>Нет резюме, чек-листа, lifecycle</td></tr>
+  </table>
+</section>
+
+<!-- B2: Новый CJM -->
+<section>
+  <h2>Новый CJM: Copilot V2</h2>
+  <table>
+    <tr><th>Этап</th><th>V1 (текущий)</th><th>V2 (предложение)</th></tr>
+    <tr><td>Вдохновение</td><td>Текстовый запрос</td><td>+ мультимодальный вход (видео), антифрод</td></tr>
+    <tr><td>Поиск</td><td>Диалог, подбор</td><td>+ контекст экрана, сравнение вариантов</td></tr>
+    <tr><td>Результаты</td><td>Ссылки из чата</td><td>+ встроенный shortlist 3-5 на экране</td></tr>
+    <tr><td>Карточка</td><td>Не покрывается</td><td>+ резюме тарифа за 2 строки</td></tr>
+    <tr><td>Корзина</td><td>Не покрывается</td><td>+ чек-лист, контекстный кросс-селл</td></tr>
+    <tr><td>Post-booking</td><td>Не покрывается</td><td>+ lifecycle-компаньон: чек-листы, напоминания, кросс-продажи</td></tr>
+  </table>
+  <div class="mermaid" style="margin-top:10px;">
+graph LR
+  A["Вдохновение"] --> B["Поиск"]
+  B --> C["Результаты"]
+  C --> D["Карточка"]
+  D --> E["Корзина"]
+  E --> F["Оплата"]
+  F --> G["Trip Hub"]
+  CP1["Мультимод. вход<br/>антифрод"] -.-> A
+  CP2["Уточнения<br/>shortlist"] -.-> B
+  CP3["Insight-панель<br/>сравнение топ-3"] -.-> C
+  CP4["Резюме тарифа"] -.-> D
+  CP5["Чек-лист<br/>кросс-селл"] -.-> E
+  CP7["Компаньон<br/>чек-лист, push"] -.-> G
+  </div>
+</section>
+
+<!-- B3: Сценарии 1-2 -->
+<section>
+  <h2>Сценарии Copilot (1-2)</h2>
+  <div class="two-col">
+    <div class="scenario-box">
+      <h4>Сценарий 1: &laquo;Вдохновляющий&raquo;</h4>
+      <strong>Вход:</strong> &laquo;Хочу куда-нибудь на море в мае, бюджет 80 000 на двоих&raquo;<br><br>
+      <strong>Уточняющие вопросы:</strong> пляжный отдых или с экскурсиями? Безвиз? Дети? Прямые рейсы?<br><br>
+      <strong>Результат:</strong> shortlist 3 направления (Турция / Сочи / Вьетнам) с ценой, перелётом, визой, погодой. Кнопки: &laquo;Подробнее&raquo; / &laquo;Забронировать&raquo; / &laquo;Покажи ещё&raquo;
+    </div>
+    <div class="scenario-box">
+      <h4>Сценарий 2: &laquo;Видео из соцсети&raquo;</h4>
+      <strong>Вход:</strong> ссылка на Reels про Бали<br><br>
+      <strong>Copilot:</strong> распознаёт видео &rarr; извлекает: Бали, Убуд, рисовые террасы &rarr; проверяет на фрод &rarr; &laquo;Это Бали, район Убуд. На сколько дней? Нужен ли отель рядом?&raquo;<br><br>
+      <strong>Результат:</strong> план (перелёт + 3 варианта отелей), предупреждение о визе/страховке, антифрод-проверка
+    </div>
+  </div>
+</section>
+
+<!-- B3: Сценарии 3-4 -->
+<section>
+  <h2>Сценарии Copilot (3-4)</h2>
+  <div class="two-col">
+    <div class="scenario-box">
+      <h4>Сценарий 3: &laquo;Помоги выбрать&raquo;</h4>
+      <strong>Вход:</strong> 5 рейсов Москва &rarr; Стамбул: &laquo;Какой лучше?&raquo;<br><br>
+      <strong>Copilot:</strong> видит контекст. Уточняет: &laquo;Что важнее - цена, время или возможность отмены?&raquo; Сравнивает по: цена, время, пересадки, багаж, отмена<br><br>
+      <strong>Результат:</strong> таблица-сравнение топ-3 с рекомендацией. Все цены из API
+    </div>
+    <div class="scenario-box">
+      <h4>Сценарий 4: &laquo;Компаньон после покупки&raquo;</h4>
+      <strong>Вход:</strong> Таиланд через 2 недели: &laquo;Что подготовить?&raquo;<br><br>
+      <strong>Copilot:</strong> &laquo;Летите из Москвы? Первый раз в Таиланде?&raquo;<br><br>
+      <strong>Чек-лист:</strong><br>
+      &#10003; Загранпаспорт (ОК)<br>
+      &#9744; Страховка ВЗР &rarr; Т-Страхование<br>
+      &#9744; Тайские баты &rarr; обмен валюты<br>
+      &#9744; eSIM &rarr; Т-Мобайл<br>
+      &#9744; Адаптер розеток &rarr; маркетплейс<br><br>
+      Push за 24ч: &laquo;Завтра вылет! Регистрация открыта. Такси на 06:00?&raquo;
+    </div>
+  </div>
+</section>
+
+<!-- B4: Границы AI -->
+<section>
+  <h2>Границы ответственности AI</h2>
+  <table>
+    <tr><th>Что делает Copilot (LLM/ML)</th><th>Что остаётся правилами/API</th></tr>
+    <tr><td>Понимание естественного языка</td><td>Поиск рейсов/отелей (Travel Search API)</td></tr>
+    <tr><td>Генерация уточняющих вопросов</td><td>Актуальные цены (Pricing & Availability API)</td></tr>
+    <tr><td>Резюмирование условий тарифа</td><td>Условия отмены/возврата (данные тарифа)</td></tr>
+    <tr><td>Сравнение и объяснение вариантов</td><td>Формирование заказа (Booking/Orders API)</td></tr>
+    <tr><td>Персональный чек-лист</td><td>Кэшбек/бонусы (правила лояльности)</td></tr>
+    <tr><td>Распознавание видео/ссылок</td><td>Антифрод (верификация через реальные базы)</td></tr>
+    <tr><td>Проактивные напоминания</td><td>Push-уведомления (триггерная система)</td></tr>
+  </table>
+  <div class="highlight-box" style="margin-top:8px;">
+    <strong>Принцип:</strong> LLM - это &laquo;мозг&raquo; для понимания и общения. Все факты (цены, наличие, условия) берутся только из проверенных API.
+  </div>
+</section>
+
+<!-- B5: Качество и запреты -->
+<section>
+  <h2>Качество и запреты</h2>
+  <div class="two-col">
+    <div>
+      <h4>Copilot не имеет права:</h4>
+      <ol style="font-size:0.65em;">
+        <li>Называть цену, если она не из Pricing API в текущей сессии</li>
+        <li>Говорить &laquo;гарантирую&raquo;, &laquo;обещаю&raquo;, &laquo;точно будет&raquo;</li>
+        <li>Утверждать наличие мест без проверки Availability API</li>
+        <li>Озвучивать условия отмены &laquo;по памяти&raquo;</li>
+        <li>Рекомендовать направления с визой без предупреждения</li>
+      </ol>
+    </div>
+    <div>
+      <h4>Как предотвращаем ошибки:</h4>
+      <ol style="font-size:0.65em;">
+        <li>Все факты из API в реальном времени</li>
+        <li>Дисклеймер: &laquo;Цены актуальны на момент запроса&raquo;</li>
+        <li>Если API недоступен: честный fallback + ссылка</li>
+        <li>Валидация ответов на сервере (Fact Validator)</li>
+        <li>Логирование всех ответов с источником для аудита</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- B6: Метрики B -->
+<section>
+  <h2>Метрики (продуктовые)</h2>
+  <div class="highlight-box">
+    <strong>NSM:</strong> доля завершённых поездок с использованием Copilot на 2+ этапах lifecycle.
+  </div>
+  <div class="two-col" style="margin-top:10px;">
+    <div>
+      <h4>Supporting</h4>
+      <table>
+        <tr><th>Метрика</th><th>Цель</th></tr>
+        <tr><td>Конверсия с Copilot vs без</td><td>+15-20%</td></tr>
+        <tr><td>Время до бронирования</td><td>-30%</td></tr>
+        <tr><td>Кросс-продажи</td><td>20-25% &rarr; 35-40%</td></tr>
+        <tr><td>CSAT Copilot</td><td>&gt;4,2/5</td></tr>
+        <tr><td>% диалогов до действия</td><td>&gt;40%</td></tr>
+      </table>
+    </div>
+    <div>
+      <h4>Guardrails</h4>
+      <table>
+        <tr><th>Guardrail</th><th>Порог</th></tr>
+        <tr><td>Жалобы на неверную инфо</td><td>0 подтверждённых</td></tr>
+        <tr><td>% отмен через Copilot</td><td>&le; текущего</td></tr>
+        <tr><td>Латентность p95</td><td>&le; 3 сек</td></tr>
+        <tr><td>NPS</td><td>&ge; текущего</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- B7: Прототипы -->
+<section>
+  <h2>Интерактивный прототип</h2>
+  <div class="two-col">
+    <div>
+      <a href="https://ananasdda.github.io/t-travel-copilot-prototype/" target="_blank">
+        <img src="screenshots/screen_main.png" alt="Главная + Copilot" style="max-height:350px;">
+      </a>
+      <p style="font-size:0.5em; text-align:center;">Экран 1: Главная + inline-чат</p>
+    </div>
+    <div>
+      <a href="https://ananasdda.github.io/t-travel-copilot-prototype/results.html" target="_blank">
+        <img src="screenshots/screen_results.png" alt="Результаты + Copilot" style="max-height:350px;">
+      </a>
+      <p style="font-size:0.5em; text-align:center;">Экран 2: Результаты + контекстный Copilot</p>
+    </div>
+  </div>
+  <p style="font-size:0.55em; margin-top:6px;">
+    <a href="https://ananasdda.github.io/t-travel-copilot-prototype/triphub.html" target="_blank">Экран 3: Trip Hub</a> &middot;
+    <a href="https://github.com/ananasDDA/t-travel-copilot-prototype" target="_blank">GitHub</a>
+  </p>
+</section>
+
+<!-- ============ ЧАСТЬ C ============ -->
+<section class="section-slide">
+  <h2 style="color:#FFCA28;">Часть C</h2>
+  <p>Техническая схема</p>
+</section>
+
+<!-- C1: Архитектура -->
+<section>
+  <h2>Схема: как проходит запрос</h2>
+  <div class="mermaid">
+graph TD
+  UI1["Travel UI<br/>Приложение / мессенджер"] --> GW["API Gateway<br/>Аутентификация, rate limiting"]
+  GW --> IP["Intent Parser +<br/>Context Manager"]
+  IP --> Core["Copilot Core<br/>Gen-T LLM"]
+  Core --> FV["Fact Validator<br/>Проверка фактов"]
+  FV --> UI2["Travel UI<br/>Streaming-ответ"]
+  IP <--> MA["Media Analyzer<br/>Видео, антифрод"]
+  Core <--> TS["Travel Search"]
+  Core <--> PA["Pricing &<br/>Availability"]
+  Core <--> BO["Booking /<br/>Orders"]
+  Core <--> RC["Refunds /<br/>Changes"]
+  Core <--> LO["Loyalty /<br/>Offers"]
+  PA <--> ER["Ecosystem Router<br/>Страховка, eSIM,<br/>валюта, маркет"]
+  BO <--> ER
+  </div>
+</section>
+
+<!-- C1: Поток запроса -->
+<section>
+  <h2>Поток запроса</h2>
+  <ol style="font-size:0.7em;">
+    <li><strong>Пользователь</strong> отправляет запрос из Travel UI (текст, ссылка на видео, или кнопка &laquo;Сравнить&raquo;)</li>
+    <li><strong>API Gateway</strong> аутентифицирует, проверяет лимиты, маршрутизирует</li>
+    <li><strong>Intent Parser + Context Manager</strong> разбирает интент, обогащает контекстом (история, экран, lifecycle, профиль). Для видео вызывает Media Analyzer</li>
+    <li><strong>Copilot Core (Gen-T)</strong> формирует ответ, обращаясь к доменным сервисам и Ecosystem Router</li>
+    <li><strong>Fact Validator</strong> проверяет: все факты подтверждены? формулировки безопасны?</li>
+    <li><strong>Travel UI</strong> получает streaming-ответ: карточки, чек-листы, кнопки &rarr; бронирование</li>
+  </ol>
+</section>
+
+<!-- C2: Вспомогательные блоки -->
+<section>
+  <h2>Вспомогательные блоки</h2>
+  <table>
+    <tr><th>#</th><th>Блок</th><th>Зачем нужен</th></tr>
+    <tr><td>1</td><td>Intent Parser + Context Manager</td><td>Превращает текст/видео в структурированный запрос; хранит контекст диалога и lifecycle</td></tr>
+    <tr><td>2</td><td>Fact Validator</td><td>Проверяет каждый ответ: цены/условия подтверждены API, нет запрещённых слов, антифрод-флаги</td></tr>
+    <tr><td>3</td><td>Ecosystem Router</td><td>Определяет релевантные продукты экосистемы (страховка, валюта, eSIM, маркетплейс), подгружает данные</td></tr>
+    <tr><td>4</td><td>Media Analyzer</td><td>Мультимодальный вход: извлекает направление, геотеги из видео; проверяет на фрод</td></tr>
+  </table>
+</section>
+
+<!-- C3: Контроль фактов -->
+<section>
+  <h2>Правила &laquo;контроль фактов&raquo;</h2>
+  <ol style="font-size:0.68em;">
+    <li><strong>Все цены только из Pricing & Availability API.</strong> Copilot не хранит и не генерирует цены. Каждая цена привязана к API-вызову с timestamp</li>
+    <li><strong>При таймауте или ошибке API: честный fallback.</strong> &laquo;Не удалось проверить цену, вот ссылка на поиск&raquo;. Никогда не подставляет &laquo;примерную&raquo; цену</li>
+    <li><strong>Запрет на &laquo;обещания&raquo;.</strong> Системный промпт запрещает &laquo;гарантирую&raquo;, &laquo;обещаю&raquo;, &laquo;точно&raquo;, &laquo;100%&raquo;. Fact Validator блокирует</li>
+    <li><strong>Условия тарифа: только пересказ, не интерпретация.</strong> Copilot резюмирует из структурированных данных</li>
+    <li><strong>Дисклеймер при любых ценах:</strong> &laquo;Актуально на [время]. Окончательные условия на экране бронирования&raquo;. Логирование с источником</li>
+  </ol>
+</section>
+
+<!-- C4: SLA и деградация -->
+<section>
+  <h2>SLA и деградация</h2>
+  <div class="two-col">
+    <div>
+      <h4>SLA</h4>
+      <table>
+        <tr><th>Метрика</th><th>Значение</th><th>Обоснование</th></tr>
+        <tr><td>p95 латентность</td><td>&le; 3 сек</td><td>Стандарт для чат-интерфейсов. &gt;4 сек разрушает диалог</td></tr>
+        <tr><td>p99 латентность</td><td>&le; 5 сек</td><td>Сложные запросы. Streaming снижает восприятие</td></tr>
+      </table>
+    </div>
+    <div>
+      <h4>Деградация</h4>
+      <table>
+        <tr><th>Компонент</th><th>Что видит пользователь</th></tr>
+        <tr><td>Copilot Core</td><td>Кнопка серая. Стандартный поиск работает</td></tr>
+        <tr><td>Доменный API</td><td>Частичный ответ + ссылка на проверку</td></tr>
+        <tr><td>Ecosystem Router</td><td>Copilot без кросс-продаж</td></tr>
+        <tr><td>Media Analyzer</td><td>Fallback на текстовый ввод</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="highlight-box" style="margin-top:8px;">
+    <strong>Принцип:</strong> AI - это enhancement, не blocker. Поиск и бронирование всегда работают без Copilot. При сбоях: V2 &rarr; V1 &rarr; стандартный поиск.
+  </div>
+</section>
+
+<!-- ============ ЧАСТЬ D ============ -->
+<section class="section-slide">
+  <h2 style="color:#FFCA28;">Часть D</h2>
+  <p>Управление проектом</p>
+</section>
+
+<!-- D1: Фазы -->
+<section>
+  <h2>План-график: 4 фазы, 6 месяцев</h2>
+  <ol style="font-size:0.63em;">
+    <li><strong>F1. Discovery & Design</strong> (M1, март, 4 нед.) - CJM V2, MoSCoW, макеты, промпт-стратегия, API-контракты<br>
+      <span style="color:#EF5350;">&#9670;</span> <em>Веха: Design Review</em></li>
+    <li><strong>F2. MVP Core</strong> (M2-M3, апрель-май, 8 нед.) - Fine-tune Gen-T, Intent Parser, Copilot Core V2, Fact Validator, Context Manager<br>
+      <span style="color:#EF5350;">&#9670;</span> <em>Веха: MVP Internal Demo</em> - Fact Validator &ge;90% тестов</li>
+    <li><strong>F3. Integration & Beta</strong> (M4-M5, июнь-июль, 8 нед.) - Ecosystem Router, Media Analyzer, бета 5% &rarr; 20%, A/B vs V1<br>
+      <span style="color:#EF5350;">&#9670;</span> <em>Beta 5%</em> (M4) &middot; <span style="color:#EF5350;">&#9670;</span> <em>Beta 20%</em> (M5)</li>
+    <li><strong>F4. Launch & Scale</strong> (M6, август, 4 нед.) - Go/No-Go, GA 100%, мониторинг, ретроспектива<br>
+      <span style="color:#EF5350;">&#9670;</span> <em>Go/No-Go</em> (конец M5) &middot; <span style="color:#EF5350;">&#9670;</span> <em>GA Release</em> (M6)</li>
+  </ol>
+</section>
+
+<!-- D1: Гант -->
+<section>
+  <h2>Гант-диаграмма</h2>
+  <div class="mermaid">
+gantt
+  dateFormat YYYY-MM-DD
+  axisFormat %b
+  title M1 (мар) - M6 (авг) 2026
+  section Крит. путь
+    Discovery & Design        :done, d1, 2026-03-01, 4w
+    Fine-tune Gen-T           :crit, ft, 2026-04-01, 4w
+    Intent Parser             :crit, ip, 2026-04-15, 3w
+    Copilot Core V2           :crit, cc, 2026-05-01, 3w
+    Fact Validator             :crit, fv, 2026-05-15, 2w
+    Beta 5-20% + A/B          :crit, beta, 2026-06-01, 8w
+    GA Launch                  :crit, ga, 2026-08-01, 4w
+  section Параллельно
+    UX/UI чата V2             :active, ux, 2026-03-01, 8w
+    Ecosystem Router          :er, 2026-04-01, 12w
+    Media Analyzer            :ma, 2026-04-01, 12w
+    Дашборды / A/B            :da, 2026-03-01, 12w
+    Compliance                :cl1, 2026-03-01, 4w
+    Compliance review         :cl2, 2026-07-15, 4w
+  </div>
+</section>
+
+<!-- D1: Критический путь -->
+<section>
+  <h2>Критический путь</h2>
+  <div class="mermaid">
+graph LR
+  A["Fine-tune Gen-T<br/>4 нед, M2"] --> B["Intent Parser<br/>3 нед"]
+  B --> C["Copilot Core V2<br/>3 нед, M3"]
+  C --> D["Fact Validator<br/>2 нед, M3"]
+  D --> E["Beta 5% + A/B<br/>5 нед, M4-M5"]
+  E --> F["Go/No-Go → GA<br/>M5-M6"]
+  </div>
+  <p style="font-size:0.65em; margin-top:16px;">Fine-tune Gen-T - самый рискованный элемент: качество LLM определяет качество всего продукта. Ecosystem Router и Media Analyzer идут <strong>параллельно</strong> и не блокируют MVP.</p>
+</section>
+
+<!-- D2: Команда -->
+<section>
+  <h2>Команда и роли (10 FTE)</h2>
+  <table>
+    <tr><th>Роль</th><th>FTE</th><th>Крит.?</th><th>Ответственность</th></tr>
+    <tr><td>Product Manager</td><td>1</td><td>-</td><td>Roadmap, приоритизация, стейкхолдеры, Go/No-Go</td></tr>
+    <tr><td>ML/AI Engineer</td><td>2</td><td>&#10003;</td><td>Fine-tune Gen-T, Intent Parser, Media Analyzer</td></tr>
+    <tr><td>Backend Engineer</td><td>2</td><td>&#10003;</td><td>Copilot Core API, Ecosystem Router, Fact Validator</td></tr>
+    <tr><td>Mobile Engineer</td><td>1</td><td></td><td>Чат V2, мультимодальный UI, карточки</td></tr>
+    <tr><td>Product Analyst</td><td>1</td><td></td><td>Метрики, дашборды, A/B-тесты</td></tr>
+    <tr><td>UX Designer</td><td>1</td><td></td><td>CJM V2, прототипы, юзабилити-тесты</td></tr>
+    <tr><td>QA Engineer</td><td>1</td><td></td><td>Тест-кейсы, регрессия, AI QA (&laquo;красная команда&raquo;)</td></tr>
+    <tr><td>SRE/DevOps</td><td>0.5</td><td></td><td>SLA-мониторинг, алерты, деградация</td></tr>
+    <tr><td>Tech Lead</td><td>0.5</td><td></td><td>Архитектура, код-ревью</td></tr>
+  </table>
+</section>
+
+<!-- D3: RACI -->
+<section>
+  <h2>RACI по ключевым артефактам</h2>
+  <table>
+    <tr><th>Артефакт</th><th>R</th><th>A</th><th>C</th><th>I</th></tr>
+    <tr><td>Product Vision, CJM V2</td><td>PM</td><td>PM</td><td>UX, Analyst</td><td>Команда</td></tr>
+    <tr><td>Промпт-политика Gen-T</td><td>ML</td><td>PM</td><td>Legal, QA</td><td>Backend</td></tr>
+    <tr><td>Архитектура V2, API-контракты</td><td>Backend, ML</td><td>Tech Lead</td><td>PM, SRE</td><td>Analyst</td></tr>
+    <tr><td>Макеты и прототипы UI</td><td>UX</td><td>PM</td><td>Mobile, Analyst</td><td>Стейкхолдеры</td></tr>
+    <tr><td>Правила Fact Validator</td><td>ML, QA</td><td>PM</td><td>Legal</td><td>Backend</td></tr>
+    <tr><td>Ecosystem API-интеграции</td><td>Backend</td><td>Tech Lead</td><td>Команды экосист.</td><td>PM</td></tr>
+    <tr><td>A/B-план и дашборды</td><td>Analyst</td><td>PM</td><td>ML, Backend</td><td>Стейкхолдеры</td></tr>
+    <tr><td>Тест-план и AI QA</td><td>QA</td><td>Tech Lead</td><td>ML, PM</td><td>Команда</td></tr>
+    <tr><td>Go/No-Go решение</td><td>PM</td><td>Head of Travel</td><td>Analyst, TL, QA</td><td>Команда</td></tr>
+    <tr><td>GA-релиз</td><td>Backend, Mobile</td><td>PM</td><td>QA, SRE</td><td>Стейкхолдеры</td></tr>
+  </table>
+  <p class="small-text">R - делает, A - отвечает, C - консультируют, I - информируют</p>
+</section>
+
+<!-- D4: Предположения + ограничения -->
+<section>
+  <h2>Предположения и ограничения</h2>
+  <div class="two-col">
+    <div>
+      <h4>Предположения</h4>
+      <table>
+        <tr><th>#</th><th>Предположение</th><th>Если нарушено</th></tr>
+        <tr><td>1</td><td>Gen-T обучена на тревел-домен; нужен fine-tune, не from scratch</td><td>+4-8 нед.</td></tr>
+        <tr><td>2</td><td>Feature flag инфраструктура готова</td><td>+2 нед.</td></tr>
+        <tr><td>3</td><td>API экосистемы задокументированы</td><td>+2-4 нед. на API</td></tr>
+        <tr><td>4</td><td>GPU-ресурсы по запросу</td><td>+2-3 нед. очередь</td></tr>
+        <tr><td>5</td><td>Команда 10 FTE к M1</td><td>+4-6 нед. найм</td></tr>
+      </table>
+    </div>
+    <div>
+      <h4>Ограничения</h4>
+      <table>
+        <tr><th>#</th><th>Ограничение</th><th>Влияние</th></tr>
+        <tr><td>1</td><td>Compliance-review на медиа</td><td>Media Analyzer +2-4 нед.</td></tr>
+        <tr><td>2</td><td>Летний сезон = пик нагрузки</td><td>Beta &le;20% до подтверждения</td></tr>
+        <tr><td>3</td><td>Бюджет GPU фиксирован</td><td>2-3 итерации fine-tune</td></tr>
+        <tr><td>4</td><td>Ecosystem API - другие команды</td><td>Router может войти позже</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- D5: Матрица рисков -->
+<section>
+  <h2>Матрица рисков (ТОП-8)</h2>
+  <table>
+    <tr><th>#</th><th>Риск</th><th>Вер.</th><th>Влиян.</th><th>Митигация</th></tr>
+    <tr><td>R1</td><td>Fine-tune Gen-T не достигает качества</td><td>Сред.</td><td>Крит.</td><td>2-3 цикла. Fallback: правила + RAG поверх V1</td></tr>
+    <tr><td>R2</td><td>Задержка API от смежных команд</td><td>Выс.</td><td>Выс.</td><td>Early engagement (M1). Mock API. Router не на крит. пути</td></tr>
+    <tr><td>R3</td><td>Fact Validator пропускает ошибку</td><td>Низ.</td><td>Крит.</td><td>&laquo;Красная команда&raquo; QA. 100% логирование. Kill switch</td></tr>
+    <tr><td>R4</td><td>Латентность видео &gt;5 сек</td><td>Сред.</td><td>Сред.</td><td>Async + прогресс. Кэш. Fallback на текст</td></tr>
+    <tr><td>R5</td><td>Compliance блокирует медиа</td><td>Сред.</td><td>Выс.</td><td>Параллельный трек Legal. GA без Media Analyzer</td></tr>
+    <tr><td>R6</td><td>Уход ключевого ML-инженера</td><td>Сред.</td><td>Выс.</td><td>Bus factor &ge;2. Документация. Retention-бонус</td></tr>
+    <tr><td>R7</td><td>Scope creep</td><td>Выс.</td><td>Сред.</td><td>MoSCoW (M1). Must: этапы 4-5. Feature flags</td></tr>
+    <tr><td>R8</td><td>Beta ухудшает метрики vs V1</td><td>Низ.</td><td>Крит.</td><td>A/B. Go/No-Go (M5). Rollback к V1 за минуты</td></tr>
+  </table>
+  <div class="highlight-box" style="margin-top:6px;">
+    <strong>Фокус:</strong> R1 (fine-tune), R2 (API-зависимости), R7 (scope creep) - проактивное управление с M1.
+  </div>
+</section>
+
+<!-- ============ ФИНАЛЬНЫЙ СЛАЙД ============ -->
+<section>
+  <h1 style="font-size:1.4em;">AI Travel Copilot</h1>
+  <p style="font-size:0.8em; color:#aaa;">Не просто агент, а попутчик</p>
+  <br>
+  <div style="font-size:0.7em;">
+    <p><a href="https://ananasdda.github.io/t-travel-copilot-prototype/" target="_blank">Демо прототипа (GitHub Pages)</a></p>
+    <p><a href="https://github.com/ananasDDA/t-travel-copilot-prototype" target="_blank">Репозиторий на GitHub</a></p>
+    <p><a href="case-solution.pdf" target="_blank">Полное решение кейса (PDF, 30 стр.)</a></p>
+  </div>
+  <br>
+  <p style="font-size:0.6em; color:#666;">Дорохов Даниил Александрович &middot; Февраль 2026</p>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({
+    startOnLoad: false,
+    theme: 'dark',
+    themeVariables: {
+      primaryColor: '#1565C0',
+      primaryTextColor: '#fff',
+      primaryBorderColor: '#42A5F5',
+      lineColor: '#42A5F5',
+      secondaryColor: '#2E7D32',
+      tertiaryColor: '#333'
+    },
+    gantt: { titleTopMargin: 15, barHeight: 20, fontSize: 11 }
+  });
+
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    width: 1200,
+    height: 700,
+    margin: 0.04,
+    transition: 'slide',
+    plugins: []
+  }).then(() => {
+    // Render all mermaid diagrams
+    document.querySelectorAll('.mermaid').forEach((el, i) => {
+      const code = el.textContent;
+      el.textContent = '';
+      mermaid.render('mermaid-' + i, code).then(({svg}) => {
+        el.innerHTML = svg;
+      });
+    });
+  });
+</script>
+</body>
+</html>
