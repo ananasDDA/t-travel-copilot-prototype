@@ -1,26 +1,36 @@
-# AI Travel Copilot — Prototype
+# AI Travel Copilot - Прототип
 
-Interactive prototype for T-Travel AI Copilot — an AI assistant integrated into the T-Bank travel booking experience.
-
----
-
-### Demo
-
-| Page | Description | Link |
-|------|-------------|------|
-| **Main + Chat** | Home page with inline AI Copilot chat, 4 interactive scenarios | [Open](https://ananasDDA.github.io/t-travel-copilot-prototype/) |
-| **Search Results** | Contextual Copilot on flight cards, top-3 comparison, cross-sell sidebar | [Open](https://ananasDDA.github.io/t-travel-copilot-prototype/results.html) |
-| **Trip Hub** | Post-booking companion: timeline, checklist, push notification, savings | [Open](https://ananasDDA.github.io/t-travel-copilot-prototype/triphub.html) |
+Интерактивный прототип AI Travel Copilot - ИИ-ассистента, встроенного в Т-Путешествия (Т-Банк). Прототип воспроизводит реальный дизайн Т-Путешествий и демонстрирует три ключевые поверхности интеграции Copilot.
 
 ---
 
-### Copilot Scenarios (Main Page)
+### Демо
 
-- **Inspiration** — describe where you want to go, get personalized shortlist
-- **Video link** — paste a TikTok/Reels link, Copilot analyzes and plans the trip
-- **Compare** — compare top flights with detailed analysis
-- **Checklist** — pre-trip companion with insurance, currency, eSIM, taxi
+| Страница | Описание | Ссылка |
+|----------|----------|--------|
+| **Главная + Чат** | Главная страница с inline AI Copilot, 4 интерактивных сценария | [Открыть](https://ananasDDA.github.io/t-travel-copilot-prototype/) |
+| **Результаты поиска** | Контекстный Copilot на карточках рейсов, сравнение топ-3, сайдбар кросс-продаж | [Открыть](https://ananasDDA.github.io/t-travel-copilot-prototype/results.html) |
+| **Trip Hub** | Компаньон после покупки: таймлайн, чек-лист, push-уведомления, копилка | [Открыть](https://ananasDDA.github.io/t-travel-copilot-prototype/triphub.html) |
 
-### Stack
+---
 
-HTML / CSS / vanilla JS — no frameworks, no build step.
+### Сценарии Copilot (главная страница)
+
+- **Вдохновение** - опишите, куда хотите поехать, получите персональную подборку
+- **Ссылка на видео** - вставьте ссылку на Reels/TikTok, Copilot проанализирует и предложит план
+- **Сравнение** - сравнение топ-рейсов с детальным анализом
+- **Чек-лист** - компаньон перед поездкой: страховка, валюта, eSIM, такси
+
+---
+
+### Решение кейса
+
+Полное решение кейса (стратегия, продуктовая проработка, техническая схема, управление проектом) доступно в PDF:
+
+[**case-solution.pdf**](case-solution.pdf) - 30 страниц, включает диаграммы, прототипы, Гант-диаграмму и матрицу рисков.
+
+---
+
+### Стек
+
+HTML / CSS / vanilla JS - без фреймворков, без сборки.
