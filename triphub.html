@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trip Hub — Стамбул, 15–22 мая</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="pages.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="index.html" style="display:flex;align-items:center;gap:10px;">
+        <img src="https://cdn.tbank.ru/static/pfa-multimedia/images/33447f85-5b92-42f9-8d88-509bd152b47c.svg" alt="Т-Банк" class="logo-svg">
+        <span class="header__brand">Путешествия</span>
+      </a>
+    </div>
+    <nav class="header__nav">
+      <a href="index.html" class="header__link">Главная</a>
+      <a href="results.html" class="header__link">Поиск</a>
+      <a href="#" class="header__link header__link--active">Мои поездки</a>
+    </nav>
+    <div class="header__right">
+      <a href="#" class="header__account">Личный кабинет</a>
+      <svg class="header__user-icon" viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M3 19a6 6 0 0 1 6-6h6a6 6 0 0 1 6 6v3H3v-3Z" fill="currentColor"/><path opacity=".35" fill-rule="evenodd" clip-rule="evenodd" d="M15 7a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z" fill="currentColor"/></svg>
+    </div>
+  </div>
+</header>
+
+<!-- TRIP HEADER -->
+<section class="trip-header">
+  <div class="trip-header__inner">
+    <div class="trip-header__info">
+      <h1 class="trip-header__title">Стамбул</h1>
+      <p class="trip-header__dates">15 мая — 22 мая 2026 &middot; 7 ночей</p>
+      <div class="trip-header__status">
+        <span class="status-badge status-badge--confirmed">Подтверждено</span>
+        <span class="trip-header__countdown">До вылета: 91 день</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUSH NOTIFICATION MOCKUP -->
+<div class="push-mockup" id="push-mockup">
+  <div class="push-mockup__icon">
+    <img src="https://cdn.tbank.ru/static/pfa-multimedia/images/33447f85-5b92-42f9-8d88-509bd152b47c.svg" alt="" width="20">
+  </div>
+  <div class="push-mockup__content">
+    <div class="push-mockup__app">Т-Путешествия</div>
+    <div class="push-mockup__text">Цена на ваш рейс в Стамбул снизилась на 1 800 ₽. Хотите перебронировать?</div>
+  </div>
+  <div class="push-mockup__time">сейчас</div>
+</div>
+
+<div class="triphub-layout">
+  <!-- MAIN CONTENT -->
+  <main class="triphub-main">
+
+    <!-- TIMELINE -->
+    <div class="timeline">
+      <h2 class="timeline__title">Ваша поездка</h2>
+
+      <div class="timeline__item timeline__item--done">
+        <div class="timeline__dot"></div>
+        <div class="timeline__card">
+          <div class="timeline__card-header">
+            <span class="timeline__card-type">Авиабилет</span>
+            <span class="timeline__card-status">Оплачено</span>
+          </div>
+          <h3>Москва → Стамбул</h3>
+          <p>15 мая, 09:15 — 12:45 &middot; Turkish Airlines TK414 &middot; Прямой</p>
+          <div class="timeline__card-actions">
+            <a href="#" class="timeline__card-link">Маршрутная квитанция</a>
+            <a href="#" class="timeline__card-link">Условия тарифа</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline__item timeline__item--done">
+        <div class="timeline__dot"></div>
+        <div class="timeline__card">
+          <div class="timeline__card-header">
+            <span class="timeline__card-type">Отель</span>
+            <span class="timeline__card-status">Подтверждено</span>
+          </div>
+          <h3>Pera Palace Hotel 5*</h3>
+          <p>15–22 мая, 7 ночей &middot; Стандарт, завтрак включён</p>
+          <div class="timeline__card-actions">
+            <a href="#" class="timeline__card-link">Ваучер</a>
+            <a href="#" class="timeline__card-link">На карте</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline__item timeline__item--done">
+        <div class="timeline__dot"></div>
+        <div class="timeline__card">
+          <div class="timeline__card-header">
+            <span class="timeline__card-type">Авиабилет</span>
+            <span class="timeline__card-status">Оплачено</span>
+          </div>
+          <h3>Стамбул → Москва</h3>
+          <p>22 мая, 18:30 — 23:55 &middot; Turkish Airlines TK413 &middot; Прямой</p>
+          <div class="timeline__card-actions">
+            <a href="#" class="timeline__card-link">Маршрутная квитанция</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COPILOT COMPANION -->
+    <div class="copilot-companion">
+      <div class="copilot-companion__header">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M12 2l1.09 3.36L16.45 6.5l-2.73 2.12.68 3.38L12 10.25 9.6 12l.68-3.38L7.55 6.5l3.36-1.14L12 2z" fill="#126DF7"/><path d="M19 12l.75 2.27L22 15l-2.25.73L19 18l-.75-2.27L16 15l2.25-.73L19 12z" fill="#126DF7" opacity=".6"/></svg>
+        <span>AI Travel Copilot</span>
+      </div>
+      <div class="copilot-companion__body">
+        <p class="copilot-companion__greeting">До вылета 91 день. Вот что стоит подготовить:</p>
+
+        <div class="checklist-hub">
+          <div class="checklist-hub__item checklist-hub__item--done">
+            <span class="checklist-hub__check">&#10003;</span>
+            <span>Загранпаспорт действителен до 15.11.2027</span>
+          </div>
+          <div class="checklist-hub__item checklist-hub__item--done">
+            <span class="checklist-hub__check">&#10003;</span>
+            <span>Авиабилеты оплачены</span>
+          </div>
+          <div class="checklist-hub__item checklist-hub__item--done">
+            <span class="checklist-hub__check">&#10003;</span>
+            <span>Отель подтверждён</span>
+          </div>
+          <div class="checklist-hub__item checklist-hub__item--todo">
+            <span class="checklist-hub__circle"></span>
+            <span>Страховка ВЗР</span>
+            <a href="#" class="checklist-hub__action">Оформить от 890 ₽</a>
+          </div>
+          <div class="checklist-hub__item checklist-hub__item--todo">
+            <span class="checklist-hub__circle"></span>
+            <span>Турецкие лиры</span>
+            <a href="#" class="checklist-hub__action">Купить по 2.89 ₽</a>
+          </div>
+          <div class="checklist-hub__item checklist-hub__item--todo">
+            <span class="checklist-hub__circle"></span>
+            <span>eSIM для Турции</span>
+            <a href="#" class="checklist-hub__action">Подключить 690 ₽</a>
+          </div>
+          <div class="checklist-hub__item checklist-hub__item--todo">
+            <span class="checklist-hub__circle"></span>
+            <span>Такси в аэропорт</span>
+            <a href="#" class="checklist-hub__action">Напомнить за 24ч</a>
+          </div>
+        </div>
+
+        <div class="copilot-companion__suggestion">
+          <strong>В дорогу:</strong> «Стамбул. Город воспоминаний» Орхана Памука — скачать в Т-Плюс. Фильм «Взяли и поехали» — тоже в тему.
+        </div>
+
+        <div class="copilot-companion__reminder">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="#126DF7"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+          Онлайн-регистрация откроется за 24ч — 14 мая в 09:15. Напомню.
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- SIDEBAR — cross-sell -->
+  <aside class="triphub-sidebar">
+    <h3 class="triphub-sidebar__title">Для вашей поездки</h3>
+
+    <div class="sidebar-card">
+      <h3>Страховка ВЗР</h3>
+      <p>Покрытие 50 000$ для Турции. Включает COVID, отмену рейса</p>
+      <div class="sidebar-card__price">от 890 ₽</div>
+      <button class="sidebar-card__btn">Оформить</button>
+    </div>
+
+    <div class="sidebar-card">
+      <h3>Турецкие лиры</h3>
+      <p>Курс 2.89 ₽/TRY. Выгоднее купить заранее</p>
+      <div class="sidebar-card__price">от 5 000 ₽</div>
+      <button class="sidebar-card__btn">Купить</button>
+    </div>
+
+    <div class="sidebar-card">
+      <h3>eSIM Турция</h3>
+      <p>10 ГБ, 7 дней. Подключение за 1 минуту через Т-Мобайл</p>
+      <div class="sidebar-card__price">690 ₽</div>
+      <button class="sidebar-card__btn">Подключить</button>
+    </div>
+
+    <div class="sidebar-card">
+      <h3>Экскурсии</h3>
+      <p>Босфор на яхте, Айя-София, Каппадокия на 2 дня</p>
+      <div class="sidebar-card__price">от 2 500 ₽</div>
+      <button class="sidebar-card__btn">Посмотреть</button>
+    </div>
+
+    <div class="sidebar-card sidebar-card--savings">
+      <h3>Копилка на поездку</h3>
+      <p>Откладывайте на следующее путешествие. Уже накоплено:</p>
+      <div class="savings-bar">
+        <div class="savings-bar__fill" style="width: 35%"></div>
+      </div>
+      <div class="savings-bar__label">14 200 ₽ из 40 000 ₽</div>
+      <button class="sidebar-card__btn">Пополнить</button>
+    </div>
+  </aside>
+</div>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <p>Прототип AI Travel Copilot — демонстрация Trip Hub с Copilot-компаньоном</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,352 @@
+/* =============================================
+   PAGES.CSS — Styles for results.html & triphub.html
+   ============================================= */
+
+/* ===== SEARCH SUMMARY BAR ===== */
+.search-summary { background: #fff; border-bottom: 1px solid #eee; }
+.search-summary__inner {
+  max-width: 1200px; margin: 0 auto; padding: 12px 24px;
+  display: flex; align-items: center; gap: 16px;
+}
+.search-summary__route { display: flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 600; }
+.search-summary__city { color: #333; }
+.search-summary__details { font-size: 13px; color: rgba(0,0,0,.54); }
+.search-summary__edit {
+  margin-left: auto; font-size: 13px; color: #126DF7;
+  background: none; border: 1px solid #126DF7; border-radius: 8px; padding: 6px 14px;
+  cursor: pointer; transition: all .15s;
+}
+.search-summary__edit:hover { background: #126DF7; color: #fff; }
+
+/* ===== FILTERS ===== */
+.filters { background: #fff; border-bottom: 1px solid #eee; }
+.filters__inner {
+  max-width: 1200px; margin: 0 auto; padding: 10px 24px;
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
+.filter-chip {
+  padding: 6px 14px; border-radius: 20px; font-size: 13px;
+  border: 1px solid #e0e0e0; background: #fff; color: #666;
+  cursor: pointer; transition: all .15s;
+}
+.filter-chip:hover { border-color: #126DF7; color: #126DF7; }
+.filter-chip--active { background: #126DF7; color: #fff; border-color: #126DF7; }
+.filters__sort {
+  margin-left: auto; display: flex; align-items: center; gap: 6px;
+  font-size: 13px; color: rgba(0,0,0,.54);
+}
+.filters__sort select {
+  border: none; font-size: 13px; color: #333; font-family: inherit;
+  background: transparent; cursor: pointer; outline: none;
+}
+
+/* ===== RESULTS LAYOUT ===== */
+.results-layout {
+  max-width: 1200px; margin: 0 auto; padding: 20px 24px;
+  display: grid; grid-template-columns: 1fr 280px; gap: 20px;
+}
+.results-list { display: flex; flex-direction: column; gap: 12px; }
+
+/* ===== COPILOT INSIGHT BAR ===== */
+.copilot-bar {
+  background: #f0f4ff; border: 1px solid #d4e0ff; border-radius: 14px;
+  padding: 12px 16px; display: flex; align-items: flex-start; gap: 10px;
+}
+.copilot-bar__icon { flex-shrink: 0; margin-top: 2px; }
+.copilot-bar__text { font-size: 13px; color: #333; line-height: 1.5; flex: 1; }
+.copilot-bar__action {
+  flex-shrink: 0; background: #126DF7; color: #fff; border: none; border-radius: 8px;
+  padding: 7px 14px; font-size: 12px; font-weight: 600; cursor: pointer;
+  white-space: nowrap; transition: background .15s;
+}
+.copilot-bar__action:hover { background: #0d5bd4; }
+
+/* ===== FLIGHT CARD ===== */
+.flight-card {
+  background: #fff; border: 1px solid #e8e8e8; border-radius: 16px;
+  padding: 16px; position: relative; transition: box-shadow .15s;
+}
+.flight-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+.flight-card--recommended { border-color: #126DF7; }
+.flight-card__badge {
+  position: absolute; top: -1px; right: 16px;
+  padding: 3px 10px; border-radius: 0 0 8px 8px;
+  font-size: 11px; font-weight: 600;
+}
+.flight-card__badge--best { background: #126DF7; color: #fff; }
+.flight-card__badge--cheap { background: #FFDD2D; color: #333; }
+
+.flight-card__main {
+  display: grid; grid-template-columns: 140px 1fr 120px; align-items: center; gap: 16px;
+}
+.flight-card__airline { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; }
+.flight-card__airline-logo {
+  width: 32px; height: 32px; border-radius: 8px; background: #c8102e;
+  color: #fff; font-size: 11px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.flight-card__times { display: flex; align-items: center; gap: 12px; }
+.flight-card__time { text-align: center; }
+.flight-card__time-value { font-size: 18px; font-weight: 700; display: block; }
+.flight-card__time-city { font-size: 11px; color: rgba(0,0,0,.4); }
+.flight-card__duration { flex: 1; text-align: center; }
+.flight-card__duration-line {
+  height: 2px; background: #e0e0e0; margin: 0 auto 4px; width: 80%;
+  border-radius: 1px; position: relative;
+}
+.flight-card__duration-line--stop::after {
+  content: ''; position: absolute; top: -3px; left: 50%;
+  width: 8px; height: 8px; border-radius: 50%; background: #e85d04;
+  transform: translateX(-50%);
+}
+.flight-card__duration span { font-size: 11px; color: rgba(0,0,0,.54); }
+
+.flight-card__price-block { text-align: right; }
+.flight-card__price { font-size: 20px; font-weight: 700; color: #333; }
+.flight-card__cashback { font-size: 11px; color: #126DF7; }
+
+.flight-card__details {
+  display: flex; gap: 16px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #f0f0f0;
+  font-size: 12px; color: rgba(0,0,0,.54);
+}
+
+.flight-card__copilot-hint {
+  margin-top: 10px; padding: 8px 12px; border-radius: 10px;
+  background: #f0f4ff; font-size: 12px; color: #333;
+  display: flex; align-items: flex-start; gap: 6px; line-height: 1.4;
+}
+.flight-card__copilot-hint--warn { background: #fff8f0; }
+
+.flight-card__actions {
+  display: flex; gap: 8px; margin-top: 12px; justify-content: flex-end;
+}
+.flight-card__btn {
+  padding: 8px 20px; border-radius: 10px; font-size: 13px; font-weight: 600;
+  cursor: pointer; transition: all .15s;
+}
+.flight-card__btn--primary { background: #FFDD2D; color: #333; border: none; }
+.flight-card__btn--primary:hover { background: #ffd200; }
+.flight-card__btn--ghost { background: none; color: #666; border: 1px solid #e0e0e0; }
+.flight-card__btn--ghost:hover { border-color: #999; }
+
+/* ===== COPILOT COMPARE PANEL ===== */
+.copilot-compare {
+  background: #f0f4ff; border: 1px solid #d4e0ff; border-radius: 16px;
+  padding: 16px; margin-top: 4px;
+}
+.copilot-compare__header {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 14px; margin-bottom: 12px;
+}
+.copilot-compare__table {
+  width: 100%; border-collapse: collapse; font-size: 13px;
+}
+.copilot-compare__table th {
+  text-align: left; padding: 6px 10px; font-weight: 600; color: #333;
+  border-bottom: 1px solid #d4e0ff;
+}
+.copilot-compare__table td {
+  padding: 6px 10px; color: #555; border-bottom: 1px solid #e8eeff;
+}
+.copilot-compare__table td:first-child { color: rgba(0,0,0,.54); font-size: 12px; }
+.copilot-compare__verdict {
+  margin-top: 12px; font-size: 13px; line-height: 1.5; color: #333;
+}
+.copilot-compare__disclaimer {
+  margin-top: 8px; font-size: 11px; color: rgba(0,0,0,.35);
+}
+
+.results-disclaimer {
+  text-align: center; font-size: 12px; color: rgba(0,0,0,.35); padding: 12px 0;
+}
+
+/* ===== SIDEBAR (shared) ===== */
+.results-sidebar, .triphub-sidebar {
+  display: flex; flex-direction: column; gap: 12px;
+}
+.sidebar-card {
+  background: #fff; border: 1px solid #e8e8e8; border-radius: 14px; padding: 16px;
+}
+.sidebar-card h3 { font-size: 14px; font-weight: 600; margin-bottom: 4px; color: #333; }
+.sidebar-card p { font-size: 13px; color: rgba(0,0,0,.54); line-height: 1.4; margin-bottom: 8px; }
+.sidebar-card__price { font-size: 15px; font-weight: 700; color: #333; margin-bottom: 8px; }
+.sidebar-card__btn {
+  width: 100%; padding: 8px; border-radius: 10px; font-size: 13px; font-weight: 600;
+  background: #FFDD2D; color: #333; border: none; cursor: pointer; transition: background .15s;
+}
+.sidebar-card__btn:hover { background: #ffd200; }
+.sidebar-card--savings { border-color: #FFDD2D; }
+.savings-bar {
+  height: 6px; background: #f0f0f0; border-radius: 3px; margin: 8px 0 4px; overflow: hidden;
+}
+.savings-bar__fill { height: 100%; background: #FFDD2D; border-radius: 3px; }
+.savings-bar__label { font-size: 12px; color: rgba(0,0,0,.54); margin-bottom: 8px; }
+
+/* =============================================
+   TRIP HUB
+   ============================================= */
+
+/* Trip header */
+.trip-header { background: #fff; border-bottom: 1px solid #eee; }
+.trip-header__inner { max-width: 1200px; margin: 0 auto; padding: 24px; }
+.trip-header__title { font-size: 32px; font-weight: 700; color: #333; margin-bottom: 4px; }
+.trip-header__dates { font-size: 15px; color: rgba(0,0,0,.54); margin-bottom: 10px; }
+.trip-header__status { display: flex; align-items: center; gap: 12px; }
+.status-badge {
+  padding: 4px 10px; border-radius: 8px; font-size: 12px; font-weight: 600;
+}
+.status-badge--confirmed { background: #e8f5e9; color: #2e7d32; }
+.trip-header__countdown { font-size: 13px; color: rgba(0,0,0,.54); }
+
+/* Push mockup */
+.push-mockup {
+  max-width: 380px; margin: 16px auto; padding: 12px 16px;
+  background: #fff; border: 1px solid #e0e0e0; border-radius: 16px;
+  display: flex; align-items: flex-start; gap: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.1);
+  animation: pushSlide .5s ease-out;
+}
+@keyframes pushSlide { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.push-mockup__icon { flex-shrink: 0; margin-top: 2px; }
+.push-mockup__content { flex: 1; }
+.push-mockup__app { font-size: 11px; color: rgba(0,0,0,.4); font-weight: 500; margin-bottom: 2px; }
+.push-mockup__text { font-size: 13px; color: #333; line-height: 1.4; }
+.push-mockup__time { font-size: 11px; color: rgba(0,0,0,.35); flex-shrink: 0; }
+
+/* Trip Hub layout */
+.triphub-layout {
+  max-width: 1200px; margin: 0 auto; padding: 20px 24px;
+  display: grid; grid-template-columns: 1fr 300px; gap: 24px;
+}
+.triphub-main { display: flex; flex-direction: column; gap: 20px; }
+.triphub-sidebar__title { font-size: 16px; font-weight: 600; margin-bottom: 12px; color: #333; }
+
+/* Timeline */
+.timeline__title { font-size: 20px; font-weight: 700; margin-bottom: 16px; color: #333; }
+.timeline__item {
+  display: flex; gap: 16px; padding-bottom: 20px;
+  position: relative;
+}
+.timeline__item::before {
+  content: ''; position: absolute; left: 11px; top: 24px; bottom: 0;
+  width: 2px; background: #e0e0e0;
+}
+.timeline__item:last-child::before { display: none; }
+.timeline__dot {
+  width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
+  border: 2px solid #e0e0e0; background: #fff; position: relative; z-index: 1;
+}
+.timeline__item--done .timeline__dot { background: #126DF7; border-color: #126DF7; }
+.timeline__card {
+  flex: 1; background: #fff; border: 1px solid #e8e8e8; border-radius: 14px;
+  padding: 14px;
+}
+.timeline__card-header {
+  display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;
+}
+.timeline__card-type { font-size: 11px; color: rgba(0,0,0,.4); text-transform: uppercase; letter-spacing: .5px; }
+.timeline__card-status { font-size: 11px; color: #2e7d32; font-weight: 500; }
+.timeline__card h3 { font-size: 15px; font-weight: 600; color: #333; margin-bottom: 4px; }
+.timeline__card p { font-size: 13px; color: rgba(0,0,0,.54); margin-bottom: 8px; }
+.timeline__card-actions { display: flex; gap: 12px; }
+.timeline__card-link { font-size: 12px; color: #126DF7; }
+.timeline__card-link:hover { text-decoration: underline; }
+
+/* Copilot companion */
+.copilot-companion {
+  background: #fff; border: 1px solid #e0e0e0; border-radius: 16px; overflow: hidden;
+}
+.copilot-companion__header {
+  background: #f0f4ff; padding: 10px 16px;
+  display: flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 600; color: #333;
+}
+.copilot-companion__body { padding: 16px; }
+.copilot-companion__greeting { font-size: 14px; color: #333; margin-bottom: 14px; }
+
+.checklist-hub { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+.checklist-hub__item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 13px; padding: 6px 0;
+}
+.checklist-hub__item--done { color: rgba(0,0,0,.4); }
+.checklist-hub__item--todo { color: #333; }
+.checklist-hub__check { color: #2e7d32; font-weight: 700; font-size: 14px; width: 20px; text-align: center; }
+.checklist-hub__circle {
+  width: 16px; height: 16px; border: 2px solid #e0e0e0; border-radius: 50%;
+  flex-shrink: 0;
+}
+.checklist-hub__action {
+  margin-left: auto; font-size: 12px; color: #126DF7; white-space: nowrap;
+}
+.checklist-hub__action:hover { text-decoration: underline; }
+
+.copilot-companion__suggestion {
+  background: #f8f9fa; border-radius: 10px; padding: 10px 14px;
+  font-size: 13px; color: #333; line-height: 1.5; margin-bottom: 12px;
+}
+
+.copilot-companion__reminder {
+  display: flex; align-items: flex-start; gap: 6px;
+  font-size: 12px; color: rgba(0,0,0,.54);
+}
+
+/* Header link active state */
+.header__link--active { color: #126DF7 !important; font-weight: 500; }
+
+/* ===== RESPONSIVE — PAGES ===== */
+@media (max-width: 768px) {
+  .search-summary__inner { flex-wrap: wrap; gap: 8px; }
+  .search-summary__route { font-size: 16px; }
+  .search-summary__edit { margin-left: 0; }
+
+  .results-layout { grid-template-columns: 1fr; }
+  .results-sidebar { order: -1; }
+
+  .flight-card__main { grid-template-columns: 1fr; gap: 10px; }
+  .flight-card__price-block { text-align: left; }
+  .flight-card__times { flex-wrap: wrap; }
+
+  .triphub-layout { grid-template-columns: 1fr; }
+  .triphub-sidebar { order: -1; }
+
+  .push-mockup { max-width: 100%; margin: 12px 16px; }
+  .trip-header__inner { padding: 16px; }
+  .trip-header__title { font-size: 24px; }
+}
+
+@media (max-width: 480px) {
+  .filters__inner { gap: 6px; }
+  .filter-chip { padding: 5px 10px; font-size: 12px; }
+  .filters__sort { display: none; }
+
+  .search-summary__inner { padding: 10px 12px; }
+  .search-summary__route { font-size: 15px; }
+
+  .results-layout, .triphub-layout { padding: 12px 8px; gap: 12px; }
+
+  .flight-card { padding: 12px; border-radius: 12px; }
+  .flight-card__badge { font-size: 10px; padding: 2px 8px; }
+  .flight-card__time-value { font-size: 16px; }
+  .flight-card__price { font-size: 17px; }
+  .flight-card__actions { justify-content: stretch; }
+  .flight-card__btn { flex: 1; text-align: center; }
+
+  .copilot-bar { flex-direction: column; gap: 8px; }
+  .copilot-bar__action { align-self: flex-start; }
+
+  .copilot-compare__table { font-size: 11px; }
+  .copilot-compare__table th, .copilot-compare__table td { padding: 4px 6px; }
+
+  .sidebar-card { padding: 12px; }
+
+  .timeline__item { gap: 10px; }
+  .timeline__card { padding: 12px; }
+  .timeline__card h3 { font-size: 14px; }
+
+  .push-mockup { margin: 8px; padding: 10px 12px; }
+
+  .trip-header__inner { padding: 12px; }
+  .trip-header__title { font-size: 22px; }
+}
