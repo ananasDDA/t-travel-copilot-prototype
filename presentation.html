@@ -4,44 +4,110 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Travel Copilot - Презентация</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
 <style>
-  :root { --r-main-font-size: 28px; --r-heading-font: 'Segoe UI', system-ui, sans-serif; --r-main-font: 'Segoe UI', system-ui, sans-serif; }
-  .reveal { font-size: 24px; }
-  .reveal h1 { font-size: 1.8em; color: #FFCA28; }
-  .reveal h2 { font-size: 1.3em; color: #FFCA28; }
-  .reveal h3 { font-size: 1.05em; color: #42A5F5; }
-  .reveal h4 { font-size: 0.9em; color: #66BB6A; margin-bottom: 0.3em; }
-  .reveal table { font-size: 0.55em; margin: 0.3em auto; border-collapse: collapse; width: 95%; }
-  .reveal table th { background: #1565C0; color: #fff; padding: 6px 8px; text-align: left; }
-  .reveal table td { padding: 5px 8px; border-bottom: 1px solid #444; vertical-align: top; }
-  .reveal table tr:nth-child(even) td { background: rgba(255,255,255,0.04); }
-  .reveal ul, .reveal ol { font-size: 0.75em; text-align: left; }
-  .reveal li { margin-bottom: 0.25em; }
-  .stat-cards { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin: 0.5em 0; }
-  .stat-card { border-radius: 10px; padding: 14px 18px; text-align: center; min-width: 140px; }
-  .stat-card .num { font-size: 1.8em; font-weight: bold; }
-  .stat-card .lbl { font-size: 0.65em; opacity: 0.85; margin-top: 4px; }
-  .sc-red { background: rgba(239,83,80,0.15); border: 1px solid rgba(239,83,80,0.4); }
-  .sc-red .num { color: #EF5350; }
-  .sc-yellow { background: rgba(255,202,40,0.12); border: 1px solid rgba(255,202,40,0.35); }
-  .sc-yellow .num { color: #FFCA28; }
-  .sc-blue { background: rgba(33,150,243,0.12); border: 1px solid rgba(33,150,243,0.35); }
-  .sc-blue .num { color: #2196F3; }
-  .sc-green { background: rgba(102,187,106,0.12); border: 1px solid rgba(102,187,106,0.35); }
-  .sc-green .num { color: #66BB6A; }
-  .highlight-box { background: rgba(255,202,40,0.1); border-left: 4px solid #FFCA28; padding: 12px 16px; border-radius: 6px; font-size: 0.75em; text-align: left; margin: 0.4em 0; }
-  .highlight-blue { background: rgba(33,150,243,0.1); border-left: 4px solid #2196F3; padding: 12px 16px; border-radius: 6px; font-size: 0.75em; text-align: left; margin: 0.4em 0; }
-  .section-slide h2 { font-size: 1.6em; }
-  .small-text { font-size: 0.6em; opacity: 0.7; }
+  :root {
+    --t-yellow: #FFDD2D;
+    --t-yellow-hover: #ffd200;
+    --t-blue: #126DF7;
+    --t-dark: #333;
+    --t-light-bg: #f6f7f8;
+    --t-card-bg: #fff;
+    --t-border: #e8e8e8;
+    --t-gray: rgba(0,0,0,.54);
+    --r-main-font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --r-heading-font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --r-main-font-size: 24px;
+    --r-main-color: #333;
+    --r-heading-color: #333;
+    --r-link-color: #126DF7;
+    --r-link-color-hover: #0d5ad4;
+    --r-background-color: #fff;
+  }
+  .reveal { font-family: var(--r-main-font); font-size: 22px; color: var(--t-dark); }
+  .reveal .slides { text-align: left; }
+  .reveal .slides > section { padding: 30px 40px; }
+  .reveal h1 { font-size: 2em; font-weight: 800; color: var(--t-dark); letter-spacing: -0.5px; text-align: center; }
+  .reveal h2 { font-size: 1.25em; font-weight: 700; color: var(--t-dark); margin-bottom: 0.5em; border-bottom: 3px solid var(--t-yellow); display: inline-block; padding-bottom: 4px; }
+  .reveal h3 { font-size: 1em; font-weight: 600; color: var(--t-blue); margin-bottom: 0.3em; }
+  .reveal h4 { font-size: 0.8em; font-weight: 600; color: var(--t-dark); margin-bottom: 0.2em; }
+
+  /* Tables */
+  .reveal table { font-size: 0.54em; margin: 0.4em 0; border-collapse: collapse; width: 100%; border-radius: 12px; overflow: hidden; }
+  .reveal table th { background: var(--t-yellow); color: var(--t-dark); padding: 7px 10px; text-align: left; font-weight: 600; border: none; }
+  .reveal table td { padding: 6px 10px; border-bottom: 1px solid var(--t-border); background: #fff; vertical-align: top; }
+  .reveal table tr:last-child td { border-bottom: none; }
+
+  /* Lists */
+  .reveal ul, .reveal ol { font-size: 0.72em; text-align: left; margin-left: 0.3em; }
+  .reveal li { margin-bottom: 0.3em; line-height: 1.5; }
+
+  /* Stat cards */
+  .stat-cards { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin: 0.6em 0; }
+  .stat-card { border-radius: 16px; padding: 16px 20px; text-align: center; min-width: 150px; flex: 1; max-width: 200px; }
+  .stat-card .num { font-size: 2em; font-weight: 800; }
+  .stat-card .lbl { font-size: 0.6em; color: var(--t-gray); margin-top: 4px; line-height: 1.3; }
+  .sc-red { background: #fff3f3; border: 2px solid #ffcdd2; }
+  .sc-red .num { color: #e53935; }
+  .sc-yellow { background: #fffde7; border: 2px solid var(--t-yellow); }
+  .sc-yellow .num { color: #f9a825; }
+  .sc-blue { background: #e8f0fe; border: 2px solid #90caf9; }
+  .sc-blue .num { color: var(--t-blue); }
+  .sc-green { background: #e8f5e9; border: 2px solid #a5d6a7; }
+  .sc-green .num { color: #2e7d32; }
+
+  /* Highlight boxes */
+  .highlight-box { background: #fffde7; border-left: 4px solid var(--t-yellow); padding: 12px 16px; border-radius: 0 10px 10px 0; font-size: 0.7em; text-align: left; margin: 0.4em 0; }
+  .highlight-blue { background: #e8f0fe; border-left: 4px solid var(--t-blue); padding: 12px 16px; border-radius: 0 10px 10px 0; font-size: 0.7em; text-align: left; margin: 0.4em 0; }
+  .highlight-green { background: #e8f5e9; border-left: 4px solid #66bb6a; padding: 12px 16px; border-radius: 0 10px 10px 0; font-size: 0.7em; text-align: left; margin: 0.4em 0; }
+
+  /* Section slides */
+  .section-slide { text-align: center !important; }
+  .section-slide h2 { border-bottom: none !important; display: block !important; font-size: 2em !important; }
+  .section-slide .section-badge { display: inline-block; background: var(--t-yellow); color: var(--t-dark); padding: 8px 28px; border-radius: 30px; font-size: 0.55em; font-weight: 700; margin-bottom: 12px; }
+  .section-slide p { text-align: center; font-size: 0.8em; color: var(--t-gray); }
+
+  /* Two col layout */
   .two-col { display: flex; gap: 20px; align-items: flex-start; }
   .two-col > div { flex: 1; }
-  .reveal img { max-height: 440px; border-radius: 6px; }
-  .scenario-box { background: rgba(33,150,243,0.08); border: 1px solid rgba(33,150,243,0.25); border-radius: 8px; padding: 14px 18px; text-align: left; font-size: 0.7em; margin: 0.3em 0; }
-  .scenario-box strong { color: #42A5F5; }
-  .mermaid { font-size: 0.7em; }
-  .reveal pre { font-size: 0.55em; }
+
+  /* Scenario boxes */
+  .scenario-box { background: var(--t-light-bg); border: 1px solid var(--t-border); border-radius: 12px; padding: 14px 18px; text-align: left; font-size: 0.65em; margin: 0.3em 0; }
+  .scenario-box h4 { color: var(--t-blue); margin-bottom: 8px; }
+  .scenario-box strong { color: var(--t-dark); }
+
+  /* Mermaid */
+  .mermaid { font-size: 0.7em; text-align: center; }
+
+  /* Images */
+  .reveal img { max-height: 400px; border-radius: 12px; border: 1px solid var(--t-border); box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+
+  /* Title slide custom */
+  .title-slide { text-align: center !important; }
+  .title-slide .t-logo { height: 36px; margin-bottom: 12px; }
+  .title-slide h1 { margin-bottom: 0.15em; }
+  .title-slide .subtitle { font-size: 0.75em; color: var(--t-gray); font-style: italic; }
+  .title-slide .tagline { font-size: 0.6em; color: var(--t-dark); margin-top: 0.3em; display: inline-block; background: var(--t-yellow); padding: 6px 20px; border-radius: 30px; font-weight: 600; }
+  .title-slide .meta { font-size: 0.55em; color: var(--t-gray); margin-top: 1.5em; }
+
+  /* Small text */
+  .small-text { font-size: 0.55em; color: var(--t-gray); }
+
+  /* Badge */
+  .t-badge { display: inline-block; background: var(--t-yellow); color: var(--t-dark); padding: 2px 10px; border-radius: 20px; font-size: 0.6em; font-weight: 600; }
+
+  /* Slide number */
+  .reveal .slide-number { color: var(--t-gray); font-size: 12px; }
+
+  /* Override reveal background */
+  .reveal .slide-background { background: #fff; }
+
+  /* Links */
+  .reveal a { color: var(--t-blue); text-decoration: none; }
+  .reveal a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -49,13 +115,16 @@
 <div class="slides">
 
 <!-- ============ ТИТУЛЬНЫЙ ============ -->
-<section>
+<section class="title-slide">
+  <img class="t-logo" src="https://cdn.tbank.ru/static/pfa-multimedia/images/33447f85-5b92-42f9-8d88-509bd152b47c.svg" alt="Т-Банк">
+  <p style="font-size:0.65em; color:var(--t-gray); margin-bottom: 0.3em;">Путешествия</p>
   <h1>AI Travel Copilot</h1>
-  <p style="font-size:0.9em; color:#aaa;">Не просто агент, а попутчик</p>
-  <p style="font-size:0.7em;">От планирования к сопровождению: V1 &rarr; V2</p>
-  <br>
-  <p style="font-size:0.7em; color:#888;">Стратегия, продуктовая проработка и техническая схема<br>для Т-Путешествий (Т-Банк)</p>
-  <p style="font-size:0.6em; color:#666;">Февраль 2026 &middot; Дорохов Даниил Александрович</p>
+  <p class="subtitle">Не просто агент, а попутчик</p>
+  <p class="tagline">От планирования к сопровождению: V1 &rarr; V2</p>
+  <p class="meta">
+    Стратегия, продуктовая проработка и техническая схема<br>
+    Февраль 2026 &middot; Дорохов Даниил Александрович
+  </p>
 </section>
 
 <!-- ============ КОНТЕКСТ V1→V2 ============ -->
@@ -71,8 +140,9 @@
 
 <!-- ============ ЧАСТЬ A ============ -->
 <section class="section-slide">
-  <h2 style="color:#FFCA28;">Часть А</h2>
-  <p>Стратегия</p>
+  <div class="section-badge">Часть А</div>
+  <h2>Стратегия</h2>
+  <p>Потребности пользователей, ценность, метрики, риски</p>
 </section>
 
 <!-- A1: Проблема + ключевые цифры -->
@@ -84,7 +154,7 @@
     <div class="stat-card sc-blue"><div class="num">25 сек</div><div class="lbl">на изучение<br>тарифа</div></div>
     <div class="stat-card sc-green"><div class="num">1-2%</div><div class="lbl">конверсия<br>визит &rarr; покупка</div></div>
   </div>
-  <p style="font-size:0.6em; margin-top:0.8em;">Парадокс выбора (Барри Шварц): при 50+ вариантах конверсия падает на 20-30%.<br>~40% уходят после 5-7 поисков из-за усталости. AI фильтрует 90% шума, человек принимает решение.</p>
+  <p style="font-size:0.58em; margin-top:0.7em; color: var(--t-gray);">Парадокс выбора (Барри Шварц): при 50+ вариантах конверсия падает на 20-30%.<br>~40% уходят после 5-7 поисков из-за усталости. AI фильтрует 90% шума, человек принимает решение.</p>
 </section>
 
 <!-- A1: Сегменты -->
@@ -112,13 +182,15 @@
     <tr><td>40% &laquo;смотрят, не покупают&raquo;</td><td>Copilot переводит из &laquo;просмотра&raquo; в &laquo;действие&raquo;</td><td>Booking.com AI: +30% engagement</td></tr>
     <tr><td>35% брошенных корзин</td><td>Чек-лист перед оплатой, объяснение условий</td><td>Expedia ChatGPT: +40% сессий</td></tr>
   </table>
-  <p style="font-size:0.6em; margin-top:0.8em;">&laquo;Поехать в путешествие&raquo; - это не одна задача, а десятки. Copilot превращает сложную задачу в набор маленьких понятных действий: один вопрос - один ответ, одна галочка - один шаг. Геймификация: прогресс-бар, бейджи, обратный отсчёт.</p>
+  <div class="highlight-green" style="margin-top:10px;">
+    &laquo;Поехать в путешествие&raquo; - это не одна задача, а десятки. Copilot превращает сложную задачу в <strong>набор маленьких понятных действий</strong>: один вопрос - один ответ, одна галочка - один шаг. Геймификация: прогресс-бар, бейджи, обратный отсчёт.
+  </div>
 </section>
 
 <!-- A2: ARPU + кросс-продажи -->
 <section>
   <h2>Рост ARPU: кросс-продажи экосистемы</h2>
-  <p style="font-size:0.65em;">Каждая поездка генерирует 5-8 дополнительных транзакций. Кросс-продажи: 20-25% &rarr; <strong>35-40%</strong></p>
+  <p style="font-size:0.62em; color:var(--t-gray);">Каждая поездка генерирует 5-8 дополнительных транзакций. Кросс-продажи: 20-25% &rarr; <strong style="color:var(--t-dark);">35-40%</strong></p>
   <table>
     <tr><th>Продукт</th><th>Интеграция с Copilot</th><th>Маржа</th></tr>
     <tr><td>Т-Страхование</td><td>&laquo;Для Таиланда рекомендую ВЗР с покрытием 50к$ - оформить?&raquo;</td><td>20-30%</td></tr>
@@ -134,16 +206,16 @@
 
 <!-- A2: Конкурентное преимущество + удержание + OpEx -->
 <section>
-  <h2>Экосистемное преимущество + удержание</h2>
+  <h2>Экосистемное преимущество</h2>
   <div class="highlight-box">
     <strong>Почему Т-Банк, а не Google/Kayak/ChatGPT:</strong> ни один зарубежный конкурент не может предложить бесшовную интеграцию бронирования со страховкой, валютой, маркетплейсом, подписками и инвестициями в одном диалоге. Booking ушёл, Airbnb недоступен, оплата иностранных сервисов затруднена.
   </div>
-  <div class="two-col" style="margin-top:12px; font-size:0.65em;">
-    <div>
+  <div class="two-col" style="margin-top:12px; font-size:0.62em;">
+    <div style="background:var(--t-light-bg); padding:14px; border-radius:12px;">
       <h4>Удержание</h4>
-      <p>~50% путешественников уходят на Aviasales/Ostrovok. Lifecycle-UX (чек-лист, напоминания, такси) даёт причину вернуться. Повторные покупки: 30% &rarr; 40%.</p>
+      <p>~50% путешественников уходят на Aviasales/Ostrovok. Lifecycle-UX (чек-лист, напоминания, такси) даёт причину вернуться. Повторные покупки: 30% &rarr; <strong>40%</strong>.</p>
     </div>
-    <div>
+    <div style="background:var(--t-light-bg); padding:14px; border-radius:12px;">
       <h4>Снижение OpEx</h4>
       <p>70% обращений в поддержку - типовые. Copilot закрывает до <strong>50%</strong> автоматически. У Т-Банка уже несколько AI-ботов на Gen-T; тревел - следующий.</p>
     </div>
@@ -170,11 +242,11 @@
   <h2>Метрики успеха</h2>
   <div class="highlight-box">
     <strong>North Star Metric:</strong> Доля завершённых поездок, где Copilot использовался на 2+ этапах lifecycle.<br>
-    <span style="font-size:0.85em;">Отражает реальную полезность как компаньона. Коррелирует с кросс-продажами и удержанием.</span>
+    <span style="font-size:0.85em; color:var(--t-gray);">Отражает реальную полезность как компаньона. Коррелирует с кросс-продажами и удержанием.</span>
   </div>
   <div class="two-col" style="margin-top:10px;">
     <div>
-      <h4>Supporting</h4>
+      <h4>Supporting-метрики</h4>
       <table>
         <tr><th>Метрика</th><th>Цель</th></tr>
         <tr><td>Конверсия с Copilot vs без</td><td>+15-20%</td></tr>
@@ -215,8 +287,9 @@
 
 <!-- ============ ЧАСТЬ B ============ -->
 <section class="section-slide">
-  <h2 style="color:#FFCA28;">Часть B</h2>
-  <p>Продуктовая проработка</p>
+  <div class="section-badge">Часть B</div>
+  <h2>Продуктовая проработка</h2>
+  <p>CJM, сценарии, границы AI, метрики, прототипы</p>
 </section>
 
 <!-- B1: Текущий CJM -->
@@ -224,12 +297,19 @@
   <h2>Текущий CJM (с V1)</h2>
   <div class="mermaid">
 graph LR
-  A["Вдохновение<br/>Соцсети, друзья"] --> B["Поиск / V1-чат<br/>Форма или диалог"]
-  B --> C["Результаты<br/>Список, фильтры"]
-  C --> D["Карточка<br/>Тарифы, условия"]
-  D --> E["Корзина<br/>Проверка данных"]
-  E --> F["Оплата<br/>Картой Т-Банка"]
-  F --> G["Post-booking<br/>Trip Hub"]
+  A["<b>Вдохновение</b><br/>Соцсети, друзья"] --> B["<b>Поиск / V1-чат</b><br/>Форма или диалог"]
+  B --> C["<b>Результаты</b><br/>Список, фильтры"]
+  C --> D["<b>Карточка</b><br/>Тарифы, условия"]
+  D --> E["<b>Корзина</b><br/>Проверка данных"]
+  E --> F["<b>Оплата</b><br/>Картой Т-Банка"]
+  F --> G["<b>Post-booking</b><br/>Trip Hub"]
+  style A fill:#e8f0fe,stroke:#90caf9,color:#333
+  style B fill:#e8f0fe,stroke:#90caf9,color:#333
+  style C fill:#e8f0fe,stroke:#90caf9,color:#333
+  style D fill:#e8f0fe,stroke:#90caf9,color:#333
+  style E fill:#e8f0fe,stroke:#90caf9,color:#333
+  style F fill:#e8f0fe,stroke:#90caf9,color:#333
+  style G fill:#f6f7f8,stroke:#e0e0e0,color:#999
   </div>
   <table style="margin-top:10px;">
     <tr><th>Этап</th><th>V1 решает</th><th>Что остаётся проблемой</th></tr>
@@ -252,7 +332,7 @@ graph LR
     <tr><td>Корзина</td><td>Не покрывается</td><td>+ чек-лист, контекстный кросс-селл</td></tr>
     <tr><td>Post-booking</td><td>Не покрывается</td><td>+ lifecycle-компаньон: чек-листы, напоминания, кросс-продажи</td></tr>
   </table>
-  <div class="mermaid" style="margin-top:10px;">
+  <div class="mermaid" style="margin-top:8px;">
 graph LR
   A["Вдохновение"] --> B["Поиск"]
   B --> C["Результаты"]
@@ -260,12 +340,23 @@ graph LR
   D --> E["Корзина"]
   E --> F["Оплата"]
   F --> G["Trip Hub"]
-  CP1["Мультимод. вход<br/>антифрод"] -.-> A
-  CP2["Уточнения<br/>shortlist"] -.-> B
-  CP3["Insight-панель<br/>сравнение топ-3"] -.-> C
-  CP4["Резюме тарифа"] -.-> D
-  CP5["Чек-лист<br/>кросс-селл"] -.-> E
-  CP7["Компаньон<br/>чек-лист, push"] -.-> G
+  CP1["🎥 Мультимод.<br/>антифрод"] -.-> A
+  CP2["💬 Уточнения<br/>shortlist"] -.-> B
+  CP3["📊 Insight<br/>топ-3"] -.-> C
+  CP5["✅ Чек-лист<br/>кросс-селл"] -.-> E
+  CP7["🗺️ Компаньон<br/>push"] -.-> G
+  style A fill:#fffde7,stroke:#FFDD2D,color:#333
+  style B fill:#fffde7,stroke:#FFDD2D,color:#333
+  style C fill:#fffde7,stroke:#FFDD2D,color:#333
+  style D fill:#fffde7,stroke:#FFDD2D,color:#333
+  style E fill:#fffde7,stroke:#FFDD2D,color:#333
+  style F fill:#fffde7,stroke:#FFDD2D,color:#333
+  style G fill:#fffde7,stroke:#FFDD2D,color:#333
+  style CP1 fill:#e8f0fe,stroke:#126DF7,color:#126DF7
+  style CP2 fill:#e8f0fe,stroke:#126DF7,color:#126DF7
+  style CP3 fill:#e8f0fe,stroke:#126DF7,color:#126DF7
+  style CP5 fill:#e8f0fe,stroke:#126DF7,color:#126DF7
+  style CP7 fill:#e8f0fe,stroke:#126DF7,color:#126DF7
   </div>
 </section>
 
@@ -336,8 +427,8 @@ graph LR
   <h2>Качество и запреты</h2>
   <div class="two-col">
     <div>
-      <h4>Copilot не имеет права:</h4>
-      <ol style="font-size:0.65em;">
+      <h4 style="color:#e53935;">Copilot не имеет права:</h4>
+      <ol style="font-size:0.62em;">
         <li>Называть цену, если она не из Pricing API в текущей сессии</li>
         <li>Говорить &laquo;гарантирую&raquo;, &laquo;обещаю&raquo;, &laquo;точно будет&raquo;</li>
         <li>Утверждать наличие мест без проверки Availability API</li>
@@ -346,8 +437,8 @@ graph LR
       </ol>
     </div>
     <div>
-      <h4>Как предотвращаем ошибки:</h4>
-      <ol style="font-size:0.65em;">
+      <h4 style="color:#2e7d32;">Как предотвращаем ошибки:</h4>
+      <ol style="font-size:0.62em;">
         <li>Все факты из API в реальном времени</li>
         <li>Дисклеймер: &laquo;Цены актуальны на момент запроса&raquo;</li>
         <li>Если API недоступен: честный fallback + ссылка</li>
@@ -393,29 +484,30 @@ graph LR
 <section>
   <h2>Интерактивный прототип</h2>
   <div class="two-col">
-    <div>
+    <div style="text-align:center;">
       <a href="https://ananasdda.github.io/t-travel-copilot-prototype/" target="_blank">
-        <img src="screenshots/screen_main.png" alt="Главная + Copilot" style="max-height:350px;">
+        <img src="screenshots/screen_main.png" alt="Главная + Copilot" style="max-height:320px;">
       </a>
-      <p style="font-size:0.5em; text-align:center;">Экран 1: Главная + inline-чат</p>
+      <p style="font-size:0.5em; margin-top:6px;"><strong>Экран 1:</strong> Главная + inline-чат</p>
     </div>
-    <div>
+    <div style="text-align:center;">
       <a href="https://ananasdda.github.io/t-travel-copilot-prototype/results.html" target="_blank">
-        <img src="screenshots/screen_results.png" alt="Результаты + Copilot" style="max-height:350px;">
+        <img src="screenshots/screen_results.png" alt="Результаты + Copilot" style="max-height:320px;">
       </a>
-      <p style="font-size:0.5em; text-align:center;">Экран 2: Результаты + контекстный Copilot</p>
+      <p style="font-size:0.5em; margin-top:6px;"><strong>Экран 2:</strong> Результаты + контекстный Copilot</p>
     </div>
   </div>
-  <p style="font-size:0.55em; margin-top:6px;">
-    <a href="https://ananasdda.github.io/t-travel-copilot-prototype/triphub.html" target="_blank">Экран 3: Trip Hub</a> &middot;
+  <p style="font-size:0.55em; margin-top:8px; text-align:center;">
+    <a href="https://ananasdda.github.io/t-travel-copilot-prototype/triphub.html" target="_blank">Экран 3: Trip Hub (компаньон после покупки)</a> &middot;
     <a href="https://github.com/ananasDDA/t-travel-copilot-prototype" target="_blank">GitHub</a>
   </p>
 </section>
 
 <!-- ============ ЧАСТЬ C ============ -->
 <section class="section-slide">
-  <h2 style="color:#FFCA28;">Часть C</h2>
-  <p>Техническая схема</p>
+  <div class="section-badge">Часть C</div>
+  <h2>Техническая схема</h2>
+  <p>Архитектура, вспомогательные блоки, контроль фактов, SLA</p>
 </section>
 
 <!-- C1: Архитектура -->
@@ -423,26 +515,34 @@ graph LR
   <h2>Схема: как проходит запрос</h2>
   <div class="mermaid">
 graph TD
-  UI1["Travel UI<br/>Приложение / мессенджер"] --> GW["API Gateway<br/>Аутентификация, rate limiting"]
-  GW --> IP["Intent Parser +<br/>Context Manager"]
-  IP --> Core["Copilot Core<br/>Gen-T LLM"]
-  Core --> FV["Fact Validator<br/>Проверка фактов"]
-  FV --> UI2["Travel UI<br/>Streaming-ответ"]
-  IP <--> MA["Media Analyzer<br/>Видео, антифрод"]
-  Core <--> TS["Travel Search"]
-  Core <--> PA["Pricing &<br/>Availability"]
-  Core <--> BO["Booking /<br/>Orders"]
-  Core <--> RC["Refunds /<br/>Changes"]
-  Core <--> LO["Loyalty /<br/>Offers"]
-  PA <--> ER["Ecosystem Router<br/>Страховка, eSIM,<br/>валюта, маркет"]
-  BO <--> ER
+  UI1["🖥️ Travel UI<br/>Приложение / мессенджер"] --> GW["🔒 API Gateway<br/>Аутентификация, rate limiting"]
+  GW --> IP["🧠 Intent Parser +<br/>Context Manager"]
+  IP --> Core["⚡ Copilot Core<br/>(Gen-T LLM)"]
+  Core --> FV["✅ Fact Validator"]
+  FV --> UI2["🖥️ Travel UI<br/>Streaming-ответ"]
+  IP <-.-> MA["🎥 Media Analyzer<br/>Видео, антифрод"]
+  Core <-.-> TS["Travel Search"]
+  Core <-.-> PA["Pricing &amp;<br/>Availability"]
+  Core <-.-> BO["Booking /<br/>Orders"]
+  Core <-.-> RC["Refunds /<br/>Changes"]
+  Core <-.-> LO["Loyalty /<br/>Offers"]
+  PA <-.-> ER["🌐 Ecosystem Router<br/>Страховка, eSIM,<br/>валюта, маркет"]
+  BO <-.-> ER
+  style UI1 fill:#fffde7,stroke:#FFDD2D,color:#333
+  style GW fill:#f6f7f8,stroke:#e0e0e0,color:#333
+  style IP fill:#e8f0fe,stroke:#126DF7,color:#333
+  style Core fill:#FFDD2D,stroke:#ffd200,color:#333
+  style FV fill:#e8f5e9,stroke:#66bb6a,color:#333
+  style UI2 fill:#fffde7,stroke:#FFDD2D,color:#333
+  style MA fill:#fff3e0,stroke:#ffb74d,color:#333
+  style ER fill:#e8f5e9,stroke:#66bb6a,color:#333
   </div>
 </section>
 
 <!-- C1: Поток запроса -->
 <section>
   <h2>Поток запроса</h2>
-  <ol style="font-size:0.7em;">
+  <ol style="font-size:0.68em;">
     <li><strong>Пользователь</strong> отправляет запрос из Travel UI (текст, ссылка на видео, или кнопка &laquo;Сравнить&raquo;)</li>
     <li><strong>API Gateway</strong> аутентифицирует, проверяет лимиты, маршрутизирует</li>
     <li><strong>Intent Parser + Context Manager</strong> разбирает интент, обогащает контекстом (история, экран, lifecycle, профиль). Для видео вызывает Media Analyzer</li>
@@ -467,7 +567,7 @@ graph TD
 <!-- C3: Контроль фактов -->
 <section>
   <h2>Правила &laquo;контроль фактов&raquo;</h2>
-  <ol style="font-size:0.68em;">
+  <ol style="font-size:0.66em;">
     <li><strong>Все цены только из Pricing & Availability API.</strong> Copilot не хранит и не генерирует цены. Каждая цена привязана к API-вызову с timestamp</li>
     <li><strong>При таймауте или ошибке API: честный fallback.</strong> &laquo;Не удалось проверить цену, вот ссылка на поиск&raquo;. Никогда не подставляет &laquo;примерную&raquo; цену</li>
     <li><strong>Запрет на &laquo;обещания&raquo;.</strong> Системный промпт запрещает &laquo;гарантирую&raquo;, &laquo;обещаю&raquo;, &laquo;точно&raquo;, &laquo;100%&raquo;. Fact Validator блокирует</li>
@@ -489,7 +589,7 @@ graph TD
       </table>
     </div>
     <div>
-      <h4>Деградация</h4>
+      <h4>Деградация: если AI недоступен</h4>
       <table>
         <tr><th>Компонент</th><th>Что видит пользователь</th></tr>
         <tr><td>Copilot Core</td><td>Кнопка серая. Стандартный поиск работает</td></tr>
@@ -499,29 +599,30 @@ graph TD
       </table>
     </div>
   </div>
-  <div class="highlight-box" style="margin-top:8px;">
-    <strong>Принцип:</strong> AI - это enhancement, не blocker. Поиск и бронирование всегда работают без Copilot. При сбоях: V2 &rarr; V1 &rarr; стандартный поиск.
+  <div class="highlight-green" style="margin-top:8px;">
+    <strong>Принцип:</strong> AI - это enhancement, не blocker. Поиск и бронирование <strong>всегда</strong> работают без Copilot. При сбоях: V2 &rarr; V1 &rarr; стандартный поиск.
   </div>
 </section>
 
 <!-- ============ ЧАСТЬ D ============ -->
 <section class="section-slide">
-  <h2 style="color:#FFCA28;">Часть D</h2>
-  <p>Управление проектом</p>
+  <div class="section-badge">Часть D</div>
+  <h2>Управление проектом</h2>
+  <p>План-график, команда, RACI, риски</p>
 </section>
 
 <!-- D1: Фазы -->
 <section>
   <h2>План-график: 4 фазы, 6 месяцев</h2>
-  <ol style="font-size:0.63em;">
+  <ol style="font-size:0.6em;">
     <li><strong>F1. Discovery & Design</strong> (M1, март, 4 нед.) - CJM V2, MoSCoW, макеты, промпт-стратегия, API-контракты<br>
-      <span style="color:#EF5350;">&#9670;</span> <em>Веха: Design Review</em></li>
+      <span class="t-badge">Веха: Design Review</span></li>
     <li><strong>F2. MVP Core</strong> (M2-M3, апрель-май, 8 нед.) - Fine-tune Gen-T, Intent Parser, Copilot Core V2, Fact Validator, Context Manager<br>
-      <span style="color:#EF5350;">&#9670;</span> <em>Веха: MVP Internal Demo</em> - Fact Validator &ge;90% тестов</li>
+      <span class="t-badge">Веха: MVP Internal Demo</span> Fact Validator &ge;90% тестов</li>
     <li><strong>F3. Integration & Beta</strong> (M4-M5, июнь-июль, 8 нед.) - Ecosystem Router, Media Analyzer, бета 5% &rarr; 20%, A/B vs V1<br>
-      <span style="color:#EF5350;">&#9670;</span> <em>Beta 5%</em> (M4) &middot; <span style="color:#EF5350;">&#9670;</span> <em>Beta 20%</em> (M5)</li>
+      <span class="t-badge">Beta 5%</span> (M4) &middot; <span class="t-badge">Beta 20%</span> (M5)</li>
     <li><strong>F4. Launch & Scale</strong> (M6, август, 4 нед.) - Go/No-Go, GA 100%, мониторинг, ретроспектива<br>
-      <span style="color:#EF5350;">&#9670;</span> <em>Go/No-Go</em> (конец M5) &middot; <span style="color:#EF5350;">&#9670;</span> <em>GA Release</em> (M6)</li>
+      <span class="t-badge">Go/No-Go</span> (конец M5) &middot; <span class="t-badge">GA Release</span> (M6)</li>
   </ol>
 </section>
 
@@ -532,7 +633,7 @@ graph TD
 gantt
   dateFormat YYYY-MM-DD
   axisFormat %b
-  title M1 (мар) - M6 (авг) 2026
+  title M1 (мар) — M6 (авг) 2026
   section Крит. путь
     Discovery & Design        :done, d1, 2026-03-01, 4w
     Fine-tune Gen-T           :crit, ft, 2026-04-01, 4w
@@ -545,7 +646,7 @@ gantt
     UX/UI чата V2             :active, ux, 2026-03-01, 8w
     Ecosystem Router          :er, 2026-04-01, 12w
     Media Analyzer            :ma, 2026-04-01, 12w
-    Дашборды / A/B            :da, 2026-03-01, 12w
+    Дашборды / A-B            :da, 2026-03-01, 12w
     Compliance                :cl1, 2026-03-01, 4w
     Compliance review         :cl2, 2026-07-15, 4w
   </div>
@@ -561,8 +662,14 @@ graph LR
   C --> D["Fact Validator<br/>2 нед, M3"]
   D --> E["Beta 5% + A/B<br/>5 нед, M4-M5"]
   E --> F["Go/No-Go → GA<br/>M5-M6"]
+  style A fill:#fff3f3,stroke:#e53935,color:#333
+  style B fill:#fff3f3,stroke:#e53935,color:#333
+  style C fill:#fff3f3,stroke:#e53935,color:#333
+  style D fill:#fff3f3,stroke:#e53935,color:#333
+  style E fill:#fff3f3,stroke:#e53935,color:#333
+  style F fill:#e8f5e9,stroke:#66bb6a,color:#333
   </div>
-  <p style="font-size:0.65em; margin-top:16px;">Fine-tune Gen-T - самый рискованный элемент: качество LLM определяет качество всего продукта. Ecosystem Router и Media Analyzer идут <strong>параллельно</strong> и не блокируют MVP.</p>
+  <p style="font-size:0.62em; margin-top:14px;">Fine-tune Gen-T - самый рискованный элемент: качество LLM определяет качество всего продукта. Ecosystem Router и Media Analyzer идут <strong>параллельно</strong> и не блокируют MVP.</p>
 </section>
 
 <!-- D2: Команда -->
@@ -590,7 +697,7 @@ graph LR
     <tr><td>Product Vision, CJM V2</td><td>PM</td><td>PM</td><td>UX, Analyst</td><td>Команда</td></tr>
     <tr><td>Промпт-политика Gen-T</td><td>ML</td><td>PM</td><td>Legal, QA</td><td>Backend</td></tr>
     <tr><td>Архитектура V2, API-контракты</td><td>Backend, ML</td><td>Tech Lead</td><td>PM, SRE</td><td>Analyst</td></tr>
-    <tr><td>Макеты и прототипы UI</td><td>UX</td><td>PM</td><td>Mobile, Analyst</td><td>Стейкхолдеры</td></tr>
+    <tr><td>Макеты и прототипы UI</td><td>UX</td><td>PM</td><td>Mobile</td><td>Стейкхолдеры</td></tr>
     <tr><td>Правила Fact Validator</td><td>ML, QA</td><td>PM</td><td>Legal</td><td>Backend</td></tr>
     <tr><td>Ecosystem API-интеграции</td><td>Backend</td><td>Tech Lead</td><td>Команды экосист.</td><td>PM</td></tr>
     <tr><td>A/B-план и дашборды</td><td>Analyst</td><td>PM</td><td>ML, Backend</td><td>Стейкхолдеры</td></tr>
@@ -649,17 +756,17 @@ graph LR
 </section>
 
 <!-- ============ ФИНАЛЬНЫЙ СЛАЙД ============ -->
-<section>
-  <h1 style="font-size:1.4em;">AI Travel Copilot</h1>
-  <p style="font-size:0.8em; color:#aaa;">Не просто агент, а попутчик</p>
+<section class="title-slide">
+  <img class="t-logo" src="https://cdn.tbank.ru/static/pfa-multimedia/images/33447f85-5b92-42f9-8d88-509bd152b47c.svg" alt="Т-Банк">
+  <h1 style="font-size:1.6em;">AI Travel Copilot</h1>
+  <p class="subtitle">Не просто агент, а попутчик</p>
   <br>
-  <div style="font-size:0.7em;">
+  <div style="font-size:0.65em;">
     <p><a href="https://ananasdda.github.io/t-travel-copilot-prototype/" target="_blank">Демо прототипа (GitHub Pages)</a></p>
     <p><a href="https://github.com/ananasDDA/t-travel-copilot-prototype" target="_blank">Репозиторий на GitHub</a></p>
-    <p><a href="case-solution.pdf" target="_blank">Полное решение кейса (PDF, 30 стр.)</a></p>
+    <p><a href="case-solution.pdf" target="_blank">Полное решение кейса (PDF)</a></p>
   </div>
-  <br>
-  <p style="font-size:0.6em; color:#666;">Дорохов Даниил Александрович &middot; Февраль 2026</p>
+  <p class="meta" style="margin-top:1em;">Дорохов Даниил Александрович &middot; Февраль 2026</p>
 </section>
 
 </div>
@@ -670,16 +777,21 @@ graph LR
 <script>
   mermaid.initialize({
     startOnLoad: false,
-    theme: 'dark',
+    theme: 'base',
     themeVariables: {
-      primaryColor: '#1565C0',
-      primaryTextColor: '#fff',
-      primaryBorderColor: '#42A5F5',
-      lineColor: '#42A5F5',
-      secondaryColor: '#2E7D32',
-      tertiaryColor: '#333'
+      primaryColor: '#FFDD2D',
+      primaryTextColor: '#333',
+      primaryBorderColor: '#ffd200',
+      lineColor: '#126DF7',
+      secondaryColor: '#e8f0fe',
+      tertiaryColor: '#f6f7f8',
+      fontFamily: 'Inter, sans-serif',
+      fontSize: '13px',
+      nodeBorder: '#e0e0e0',
+      mainBkg: '#fffde7',
+      clusterBkg: '#f6f7f8'
     },
-    gantt: { titleTopMargin: 15, barHeight: 20, fontSize: 11 }
+    gantt: { titleTopMargin: 15, barHeight: 22, fontSize: 12, sectionFontSize: 13, numberSectionStyles: 2 }
   });
 
   Reveal.initialize({
@@ -691,7 +803,6 @@ graph LR
     transition: 'slide',
     plugins: []
   }).then(() => {
-    // Render all mermaid diagrams
     document.querySelectorAll('.mermaid').forEach((el, i) => {
       const code = el.textContent;
       el.textContent = '';
